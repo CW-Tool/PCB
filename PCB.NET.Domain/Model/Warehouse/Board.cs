@@ -1,21 +1,23 @@
-﻿using PCB.NET.Domain.Model.Map;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PCB.NET.Domain.Model.Warehouse
 {
-    [Table("Warehouse", Schema = "store")]
+    [Table("Board", Schema = "store")]
     public class Board
     {
+        //public Board()
+        //{
+        //    Counts = new HashSet<Count>();
+        //}
         public Board()
         {
-            Counts = new HashSet<Count>();
+            Hanging = new HashSet<Hanging>();
+            SMD = new HashSet<SMD>();
         }
+
 
         [Key]
         public int BoardId { get; set; }
@@ -24,11 +26,17 @@ namespace PCB.NET.Domain.Model.Warehouse
         [Required]
         public int CountBoard { get; set; }
         public string Description { get; set; }
-
         public DateTime? LastUpdate { get; set; }
 
-        public virtual MapBoardMap MapBoardMap { get; set; }
-        public virtual ICollection<Count> Counts { get; set; }
+        [Required]
+        public virtual MapHanging MapHanging { get; set; }
+        [Required]
+        public virtual MapSMD MapSMD { get; set; }
+        public virtual ICollection<Hanging> Hanging { get; set; }
+        public virtual ICollection<SMD> SMD { get; set; }
+
+        //public virtual MapBoardMap MapBoardMap { get; set; }
+        //public virtual ICollection<Count> Counts { get; set; }
 
     }
 }

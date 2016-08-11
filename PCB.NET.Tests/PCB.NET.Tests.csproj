@@ -92,6 +92,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PCB.NET.Domain\PCB.NET.Domain.csproj">
+      <Project>{0703fed7-0478-478c-bc80-af3ccc183197}</Project>
+      <Name>PCB.NET.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PCB.NET\PCB.NET.csproj">
       <Project>{DA7D94A8-CA78-4E6E-9BE8-4958E26D91CB}</Project>
       <Name>PCB.NET</Name>

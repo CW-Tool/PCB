@@ -3,6 +3,7 @@ namespace PCB.NET.Domain.Model
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using Warehouse;
 
     public class ModelDbContext : DbContext
     {
@@ -11,7 +12,15 @@ namespace PCB.NET.Domain.Model
         {
         }
 
-        public virtual DbSet<Warehouse> MyEntities { get; set; }
+        public virtual DbSet<Board> Boards { get; set; }
+        public virtual DbSet<GasBalloon> GasBalloons { get; set; }
+        public virtual DbSet<Hanging> Hangings { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<RatedItem> RatedItems { get; set; }
+        public virtual DbSet<SMD> SMDs { get; set; }
+        public virtual DbSet<SMDSize> SMDSizes { get; set; }
+        public virtual DbSet<MapHanging> MapHangings { get; set; }
+        public virtual DbSet<MapSMD> MapSMDs { get; set; }
     }
 
 }

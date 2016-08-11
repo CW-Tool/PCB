@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PCB.NET.Domain.Model.Warehouse
 {
-    [Table("Warehouse", Schema = "store")]
+    [Table("Hanging", Schema = "store")]
     public class Hanging
     {
+        public Hanging()
+        {
+            MapHanging = new HashSet<Board>();
+
+        }
         [Key]
         public int HangingId { get; set; }
         [Required]
@@ -25,7 +27,8 @@ namespace PCB.NET.Domain.Model.Warehouse
         public int CountItem { get; set; }
         public DateTime? LastUpdate { get; set; }
 
-        [Required]
-        public virtual Board Board { get; set; }
+        //[Required]
+        //public virtual Board Board { get; set; }
+        public virtual ICollection<Board> MapHanging { get; set; }
     }
 }
