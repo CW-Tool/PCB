@@ -10,7 +10,7 @@ namespace PCB.NET.Domain.Model.Warehouse
     {
         public SMD()
         {
-            MapBoardSMD = new HashSet<Board>();
+            BoardSMD = new HashSet<Board>();
 
         }
         [Key]
@@ -33,8 +33,6 @@ namespace PCB.NET.Domain.Model.Warehouse
         public int CountItem { get; set; }
         public DateTime? LastUpdate { get; set; }
 
-        //[Required]
-        //public virtual Board Board { get; set; }
-        public virtual ICollection<Board> MapBoardSMD { get; set; }
+        public virtual ICollection<Board> BoardSMD { get; set; }
     }
 }

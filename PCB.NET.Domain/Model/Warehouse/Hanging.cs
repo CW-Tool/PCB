@@ -10,7 +10,7 @@ namespace PCB.NET.Domain.Model.Warehouse
     {
         public Hanging()
         {
-            MapHanging = new HashSet<Board>();
+            Hangings = new HashSet<Board>();
 
         }
         [Key]
@@ -27,8 +27,6 @@ namespace PCB.NET.Domain.Model.Warehouse
         public int CountItem { get; set; }
         public DateTime? LastUpdate { get; set; }
 
-        //[Required]
-        //public virtual Board Board { get; set; }
-        public virtual ICollection<Board> MapHanging { get; set; }
+        public virtual ICollection<Board> Hangings { get; set; }
     }
 }

@@ -8,10 +8,6 @@ namespace PCB.NET.Domain.Model.Warehouse
     [Table("Board", Schema = "store")]
     public class Board
     {
-        //public Board()
-        //{
-        //    Counts = new HashSet<Count>();
-        //}
         public Board()
         {
             Hanging = new HashSet<Hanging>();
@@ -28,15 +24,8 @@ namespace PCB.NET.Domain.Model.Warehouse
         public string Description { get; set; }
         public DateTime? LastUpdate { get; set; }
 
-        [Required]
-        public virtual MapHanging MapHanging { get; set; }
-        [Required]
-        public virtual MapSMD MapSMD { get; set; }
         public virtual ICollection<Hanging> Hanging { get; set; }
         public virtual ICollection<SMD> SMD { get; set; }
-
-        //public virtual MapBoardMap MapBoardMap { get; set; }
-        //public virtual ICollection<Count> Counts { get; set; }
 
     }
 }

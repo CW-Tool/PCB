@@ -64,11 +64,9 @@
     <Compile Include="Model\Map\Map.cs" />
     <Compile Include="Model\ModelDbContext.cs" />
     <Compile Include="Model\Warehouse\Board.cs" />
-    <Compile Include="Model\Warehouse\MapHanging.cs" />
     <Compile Include="Model\Warehouse\Hanging.cs" />
     <Compile Include="Model\Warehouse\Item.cs" />
     <Compile Include="Model\Warehouse\RatedItem.cs" />
-    <Compile Include="Model\Warehouse\MapSMD.cs" />
     <Compile Include="Model\Warehouse\SMD.cs" />
     <Compile Include="Model\Warehouse\SMDSize.cs" />
     <Compile Include="Model\Warehouse\GasBalloon.cs" />
