@@ -1,14 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PCB.NET.Domain.Model.Warehouse
 {
-    [Table("Rated", Schema = "store")]
+    /// <summary>
+    /// kOm, MOm, pkF and etc
+    /// </summary>
+    [Table("RatedItem", Schema = "store")]
     public class RatedItem
     {
         [Key]
-        public int RatedId { get; set; }
+        public int RatedItemId { get; set; }
         [Required]
         public string NomValue { get; set; }
+
+        public virtual ICollection<Hanging> Hangings { get; set; }
+        public virtual ICollection<SMD> SMDs { get; set; }
     }
 }

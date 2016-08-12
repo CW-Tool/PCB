@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PCB.NET.Domain.Model.Warehouse
 {
+    /// <summary>
+    /// SMD elements
+    /// </summary>
     [Table("SMD", Schema = "store")]
     public class SMD
     {
@@ -16,15 +19,15 @@ namespace PCB.NET.Domain.Model.Warehouse
         [Key]
         public int SMDId { get; set; }
         [Required]
-        public Item Item { get; set; }
+        public virtual Item Item { get; set; }
         [Required]
-        public int Value { get; set; }
+        public double Value { get; set; }
         [Required]
-        public RatedItem RatedItem { get; set; }
+        public virtual RatedItem RatedItem { get; set; }
         [Required]
         public string DescriptionItem { get; set; }
         [Required]
-        public SMDSize Size { get; set; }
+        public virtual Size Size { get; set; }
         [Required]
         public string Packages { get; set; }
         [Required]

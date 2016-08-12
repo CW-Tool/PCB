@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="InitializerDb\WarehouseInitializer.cs" />
     <Compile Include="Model\Employee\DoneWork.cs" />
     <Compile Include="Model\Employee\Employee.cs" />
     <Compile Include="Model\Employee\Position.cs" />
@@ -68,7 +69,7 @@
     <Compile Include="Model\Warehouse\Item.cs" />
     <Compile Include="Model\Warehouse\RatedItem.cs" />
     <Compile Include="Model\Warehouse\SMD.cs" />
-    <Compile Include="Model\Warehouse\SMDSize.cs" />
+    <Compile Include="Model\Warehouse\Size.cs" />
     <Compile Include="Model\Warehouse\GasBalloon.cs" />
     <Compile Include="Model\Warehouse\AssemblyBoard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

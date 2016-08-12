@@ -18,7 +18,7 @@ namespace PCB.NET.Domain.Model
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<RatedItem> RatedItems { get; set; }
         public virtual DbSet<SMD> SMDs { get; set; }
-        public virtual DbSet<SMDSize> SMDSizes { get; set; }
+        public virtual DbSet<Size> Sizes { get; set; }
 
 
     }

@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PCB.NET.Domain.Model.Warehouse
 {
+    /// <summary>
+    /// Board
+    /// </summary>
     [Table("Board", Schema = "store")]
     public class Board
     {
@@ -13,7 +16,6 @@ namespace PCB.NET.Domain.Model.Warehouse
             Hanging = new HashSet<Hanging>();
             SMD = new HashSet<SMD>();
         }
-
 
         [Key]
         public int BoardId { get; set; }

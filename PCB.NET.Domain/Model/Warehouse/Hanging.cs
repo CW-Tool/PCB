@@ -5,28 +5,32 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PCB.NET.Domain.Model.Warehouse
 {
+    /// <summary>
+    /// Hanging elements
+    /// </summary>
     [Table("Hanging", Schema = "store")]
     public class Hanging
     {
         public Hanging()
         {
-            Hangings = new HashSet<Board>();
+            BoardHanging = new HashSet<Board>();
 
         }
         [Key]
         public int HangingId { get; set; }
         [Required]
-        public Item Item { get; set; }
+        public virtual Item Item { get; set; }
         [Required]
         public int Value { get; set; }
         [Required]
-        public RatedItem RatedItem { get; set; }
+        public virtual RatedItem RatedItem { get; set; }
         [Required]
         public string DescriptionItem { get; set; }
+        public virtual Size Size { get; set; }
         [Required]
         public int CountItem { get; set; }
         public DateTime? LastUpdate { get; set; }
 
-        public virtual ICollection<Board> Hangings { get; set; }
+        public virtual ICollection<Board> BoardHanging { get; set; }
     }
 }

@@ -5,15 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PCB.NET.Domain.Model.Warehouse
 {
     /// <summary>
-    /// resistor, capacitor, varistor and etc
+    /// Size SMD
     /// </summary>
-    [Table("Item", Schema="store")]
-    public class Item
+    [Table("Size", Schema = "store")]
+    public class Size
     {
         [Key]
-        public int ItemId { get; set; }
+        public int SizeId { get; set; }
         [Required]
-        public string NameItem { get; set; }
+        public int SizeItem { get; set; }
 
         public virtual ICollection<Hanging> Hangings { get; set; }
         public virtual ICollection<SMD> SMDs { get; set; }
