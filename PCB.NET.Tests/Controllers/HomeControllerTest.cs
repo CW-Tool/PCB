@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PCB.NET;
-using PCB.NET.Controllers;
+using PCB.NET.Web.Controllers;
 
 namespace PCB.NET.Tests.Controllers
 {

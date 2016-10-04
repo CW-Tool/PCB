@@ -38,6 +38,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -54,24 +62,25 @@
   <ItemGroup>
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="InitializerDb\WarehouseInitializer.cs" />
-    <Compile Include="Model\Employee\DoneWork.cs" />
-    <Compile Include="Model\Employee\Employee.cs" />
-    <Compile Include="Model\Employee\Position.cs" />
-    <Compile Include="Model\Machine\Dvc.cs" />
-    <Compile Include="Model\Machine\Ebso.cs" />
-    <Compile Include="Model\Machine\Systronic.cs" />
-    <Compile Include="Model\Map\Count.cs" />
-    <Compile Include="Model\Map\MapBoardMap.cs" />
-    <Compile Include="Model\Map\Map.cs" />
+    <Compile Include="Model\WorkshopPCB\Employee\DoneWork.cs" />
+    <Compile Include="Model\WorkshopPCB\Employee\Employee.cs" />
+    <Compile Include="Model\WorkshopPCB\Employee\Position.cs" />
+    <Compile Include="Model\Identity\IdentityModels.cs" />
+    <Compile Include="Model\WorkshopPCB\Machine\Dvc.cs" />
+    <Compile Include="Model\WorkshopPCB\Machine\Ebso.cs" />
+    <Compile Include="Model\WorkshopPCB\Machine\Systronic.cs" />
+    <Compile Include="Model\WorkshopPCB\Map\Count.cs" />
+    <Compile Include="Model\WorkshopPCB\Map\MapBoardMap.cs" />
+    <Compile Include="Model\WorkshopPCB\Map\Map.cs" />
     <Compile Include="Model\ModelDbContext.cs" />
-    <Compile Include="Model\Warehouse\Board.cs" />
-    <Compile Include="Model\Warehouse\Hanging.cs" />
-    <Compile Include="Model\Warehouse\Item.cs" />
-    <Compile Include="Model\Warehouse\RatedItem.cs" />
-    <Compile Include="Model\Warehouse\SMD.cs" />
-    <Compile Include="Model\Warehouse\Size.cs" />
-    <Compile Include="Model\Warehouse\GasBalloon.cs" />
-    <Compile Include="Model\Warehouse\AssemblyBoard.cs" />
+    <Compile Include="Model\WorkshopPCB\Warehouse\Board.cs" />
+    <Compile Include="Model\WorkshopPCB\Warehouse\Hanging.cs" />
+    <Compile Include="Model\WorkshopPCB\Warehouse\Item.cs" />
+    <Compile Include="Model\WorkshopPCB\Warehouse\RatedItem.cs" />
+    <Compile Include="Model\WorkshopPCB\Warehouse\SMD.cs" />
+    <Compile Include="Model\WorkshopPCB\Warehouse\Size.cs" />
+    <Compile Include="Model\WorkshopPCB\Warehouse\GasBalloon.cs" />
+    <Compile Include="Model\WorkshopPCB\Warehouse\AssemblyBoard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
