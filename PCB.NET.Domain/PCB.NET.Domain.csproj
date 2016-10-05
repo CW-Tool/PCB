@@ -60,7 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\IRepositoryPCB.cs" />
     <Compile Include="InitializerDb\WarehouseInitializer.cs" />
     <Compile Include="Model\WorkshopPCB\Employee\DoneWork.cs" />
     <Compile Include="Model\WorkshopPCB\Employee\Employee.cs" />
