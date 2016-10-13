@@ -49,8 +49,7 @@ namespace PCB.NET.Web.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
+        [Display(Name = "Email/Name")]
         public string Email { get; set; }
 
         [Required]

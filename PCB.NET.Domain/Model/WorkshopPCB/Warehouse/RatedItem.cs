@@ -2,20 +2,20 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PCB.NET.Domain.Model.Warehouse.WorkshopPCB
+namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
 {
     /// <summary>
     /// kOm, MOm, pkF and etc
     /// </summary>
-    //[Table("RatedItem", Schema = "store")]
     public enum RatedItem
     {
-        //[Key]
-        //public int RatedItemId { get; set; }
-        //[Required]
-        //public string NomValue { get; set; }
-
-        //public virtual ICollection<Hanging> Hangings { get; set; }
-        //public virtual ICollection<SMD> SMDs { get; set; }
+        Om,
+        kOm,
+        MOm,
+        nF,
+        pkF,
+        mkF,
+        F,
+        V
     }
 }

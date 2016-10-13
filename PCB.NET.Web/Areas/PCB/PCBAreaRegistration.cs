@@ -15,10 +15,11 @@ namespace PCB.NET.Web.Areas.PCB
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "PCB_default",
-                "PCB/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+                name: "PCB",
+                url: "PCB/{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "PCB.NET.Web.Areas.PCB.Controllers" }
+                );
         }
     }
 }

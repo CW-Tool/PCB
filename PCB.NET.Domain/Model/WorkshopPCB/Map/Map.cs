@@ -1,24 +1,37 @@
-﻿//using PCB.NET.Domain.Model.Warehouse;
-//using System;
-//using System.Collections.Generic;
-//using System.ComponentModel.DataAnnotations;
-//using System.ComponentModel.DataAnnotations.Schema;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-//namespace PCB.NET.Domain.Model.Map
-//{
-//    [Table("Map", Schema = "plan")]
-//    public class Map
-//    {
-//        [Key]
-//        public int MapId { get; set; }
-//        [Required]
-//        public DateTime Date { get; set; }
-//        [Required]
-//        public Count Count { get; set; }
+namespace PCB.NET.Domain.Model.WorkshopPCB.Map
+{
+    [Table("Map", Schema = "plan")]
+    public class Map
+    {
+        [Key]
+        public int MapId { get; set; }
+        [Required]
+        public Month Date { get; set; }
+        [Required]
+        public DateTime Modified { get; set; }
 
 
-//    }
-//}
+        public virtual ICollection<MapBoard> MapBoard { get; set; }
+    }
+
+    public enum Month
+    {
+        January,
+        February,
+        March,
+        April,
+        May,
+        June,
+        July,
+        August,
+        September,
+        October,
+        November,
+        December
+    }
+}

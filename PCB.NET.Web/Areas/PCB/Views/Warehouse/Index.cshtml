@@ -1,0 +1,17 @@
+﻿@model List<PCB.NET.Domain.Model.WorkshopPCB.Warehouse.SMD>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    @foreach (var m in Model)
+    {
+        <ul>
+            <li>
+                @m.DescriptionItem
+            </li>
+        </ul>
+    }
+</p>
+

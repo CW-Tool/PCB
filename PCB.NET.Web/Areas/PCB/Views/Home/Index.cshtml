@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Printed Circuit Board";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron">
+    <h1>@ViewBag.Title <small class="lead">work space</small></h1>
+    <p class="lead">Цех навесных элементов</p>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Склад</h2>
+        <p>
+            Склад навестных элементов.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Warehouse", new { area = "PCB"})">Далее &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>Текущий План</h2>
+        <p>
+            План в цеху навестных элементов. 
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Map", new { area = "PCB"})">Далее &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>Персонал</h2>
+        <p>
+            Рабочие цеха навестных элементов.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Employee", new { area = "PCB"})">Далее &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>Машины</h2>
+        <p>
+            Машины цеха навестных элементов.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Machine", new { area = "PCB"})">Далее &raquo;</a></p>
+    </div>
+</div>

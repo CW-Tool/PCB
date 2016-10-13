@@ -1,9 +1,12 @@
-﻿using System;
+﻿using PCB.NET.Domain.Model.WorkshopPCB.Employee;
+using PCB.NET.Domain.Model.WorkshopPCB.Machine;
+using PCB.NET.Domain.Model.WorkshopPCB.Map;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PCB.NET.Domain.Model.Warehouse.WorkshopPCB
+namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
 {
     /// <summary>
     /// Board
@@ -11,12 +14,6 @@ namespace PCB.NET.Domain.Model.Warehouse.WorkshopPCB
     [Table("Board", Schema = "store")]
     public class Board
     {
-        public Board()
-        {
-            Hanging = new HashSet<Hanging>();
-            SMD = new HashSet<SMD>();
-        }
-
         [Key]
         public int BoardId { get; set; }
         [Required]
@@ -24,10 +21,14 @@ namespace PCB.NET.Domain.Model.Warehouse.WorkshopPCB
         [Required]
         public int CountBoard { get; set; }
         public string Description { get; set; }
-        public DateTime? LastUpdate { get; set; }
+        [Required]
+        public DateTime LastUpdate { get; set; }
+        public Ebso Ebso { get; set; }
+        public Dvc Dvc { get; set; }
 
-        public virtual ICollection<Hanging> Hanging { get; set; }
-        public virtual ICollection<SMD> SMD { get; set; }
-
+        public virtual ICollection<MapBoard> MapBoard { get; set; }
+        public virtual ICollection<DoneWork> DoneWork { get; set; }
+        public virtual ICollection<HangingItem> HangingItems { get; set; }
+        public virtual ICollection<SMDItem> SMDItems { get; set; }
     }
 }
