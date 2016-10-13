@@ -48,6 +48,8 @@ namespace PCB.NET.Web.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>(); 
                 kernel.Bind<IRepositoryPCBmachine>().To<RepositoryPCBmachine>();
                 kernel.Bind<IRepositoryPCBwarehouse>().To<RepositoryPCBwarehouse>();
+                kernel.Bind<IRepositoryPCBemployee>().To<RepositoryPCBemployee>();
+                kernel.Bind<IRepositoryPCBmap>().To<RepositoryPCBmap>();
 
                 RegisterServices(kernel);
                 return kernel;

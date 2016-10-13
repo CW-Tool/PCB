@@ -60,6 +60,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\PCB\IRepositoryPCBemployee.cs" />
+    <Compile Include="Abstract\PCB\IRepositoryPCBmap.cs" />
     <Compile Include="Abstract\PCB\IRepositoryPCBwarehouse.cs" />
     <Compile Include="Abstract\PCB\IRepositoryPCBmachine.cs" />
     <Compile Include="InitializerDb\WarehouseInitializer.cs" />
@@ -99,7 +101,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Repository\RepositoryPCB\RepositoryPCBemployee.cs" />
     <Compile Include="Repository\RepositoryPCB\RepositoryPCBmachine.cs" />
+    <Compile Include="Repository\RepositoryPCB\RepositoryPCBmap.cs" />
     <Compile Include="Repository\RepositoryPCB\RepositoryPCBwarehouse.cs" />
   </ItemGroup>
   <ItemGroup>
