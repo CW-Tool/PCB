@@ -77,6 +77,10 @@
     <Compile Include="Migrations\201610131418066_Third.Designer.cs">
       <DependentUpon>201610131418066_Third.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610141116418_fourth.cs" />
+    <Compile Include="Migrations\201610141116418_fourth.Designer.cs">
+      <DependentUpon>201610141116418_fourth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\WorkshopPCB\Employee\DoneWork.cs" />
     <Compile Include="Model\WorkshopPCB\Employee\Employee.cs" />
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610131418066_Third.resx">
       <DependentUpon>201610131418066_Third.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610141116418_fourth.resx">
+      <DependentUpon>201610141116418_fourth.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

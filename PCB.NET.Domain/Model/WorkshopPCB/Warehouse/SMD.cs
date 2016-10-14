@@ -26,7 +26,7 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
 
         [Required]
         public int ItemId { get; set; }
-        public Item Item { get; set; }
+        public virtual Item Item { get; set; }
 
         [Required]
         public int PackagesId { get; set; }

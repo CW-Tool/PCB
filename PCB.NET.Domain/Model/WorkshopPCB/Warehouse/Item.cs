@@ -17,14 +17,14 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
         public string DescriptionItem { get; set; }
 
 
-        [Required]
         public int SMDId { get; set; }
-        [Required]
         public int HangingId { get; set; }
+        public int OtherStoreId { get; set; }
 
 
-        public SMD SMD { get; set; }
-        public Hanging Hanging { get; set; }
+        public virtual ICollection<SMD> SMD { get; set; }
+        public virtual ICollection<Hanging> Hanging { get; set; }
+        public virtual ICollection<OtherStore> OtherStore { get; set; }
     }
 
     [Table("HangingItem", Schema = "store")]
