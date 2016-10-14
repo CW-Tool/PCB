@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
 {
     /// <summary>
-    /// SMD elements
+    /// Class SMD elements.
     /// </summary>
     [Table("SMD", Schema = "store")]
     public class SMD

@@ -8,6 +8,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
 {
+    /// <summary>
+    /// Class OtherStore (different items).
+    /// </summary>
     [Table("OtherStore", Schema = "store")]
     public class OtherStore
     {

@@ -64,6 +64,9 @@
     <Compile Include="Abstract\PCB\IRepositoryPCBmap.cs" />
     <Compile Include="Abstract\PCB\IRepositoryPCBwarehouse.cs" />
     <Compile Include="Abstract\PCB\IRepositoryPCBmachine.cs" />
+    <Compile Include="InitializerDb\EmployeeInitializer.cs" />
+    <Compile Include="InitializerDb\MachineInitializer.cs" />
+    <Compile Include="InitializerDb\MapInitializer.cs" />
     <Compile Include="InitializerDb\WarehouseInitializer.cs" />
     <Compile Include="Migrations\201610121213324_first.cs" />
     <Compile Include="Migrations\201610121213324_first.Designer.cs">
