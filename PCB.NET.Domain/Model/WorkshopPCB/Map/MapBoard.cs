@@ -22,6 +22,8 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Map
         public int CountPreComplete { get; set; }
         [Required]
         public int CountReadyDone { get; set; }
+
+
         [Required]
         public int BoardId { get; set; }
         [Required]

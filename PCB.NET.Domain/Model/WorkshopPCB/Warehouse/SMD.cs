@@ -13,11 +13,7 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
     {
         [Key]
         public int SMDId { get; set; }
-        [Required]
-        public Item Item { get; set; }
-        [Required]
         public double? ValueItem { get; set; }
-        [Required]
         public RatedItem? RatedItem { get; set; }
         [Required]
         public string DescriptionItem { get; set; }
@@ -27,12 +23,16 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
         public int CountItem { get; set; }
         [Required]
         public DateTime LastUpdate { get; set; }
+
+        [Required]
+        public int ItemId { get; set; }
+        public virtual Item Item { get; set; }
+
         [Required]
         public int PackagesId { get; set; }
-        [Required]
-        public Package Packages { get; set; }
+        public virtual Package Packages { get; set; }
 
 
-        public virtual ICollection<SMDItem> SMDItems { get; set; }
+        public virtual ICollection<SMDItemMap> SMDItemMaps { get; set; }
     }
 }

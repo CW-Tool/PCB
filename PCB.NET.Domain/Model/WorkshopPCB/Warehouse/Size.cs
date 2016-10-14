@@ -13,22 +13,25 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
         [Key]
         [ForeignKey("Hanging")]
         public int SizeId { get; set; }
+
         [Required]
         public string Sizes { get; set; }
-        [Required]
-        public Hanging Hanging { get; set; }
+        public virtual Hanging Hanging { get; set; }
 
     }
 
+    /// <summary>
+    /// Size SMD, 1206, 2010, 0603...
+    /// </summary>
     [Table("Packages", Schema = "store")]
     public class Package
     {
         [Key]
         [ForeignKey("SMD")]
         public int PackagesId { get; set; }
+
         [Required]
         public string Packs { get; set; }
-        [Required]
-        public SMD SMD { get; set; }
+        public virtual SMD SMD { get; set; }
     }
 }

@@ -11,7 +11,8 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Employee
         public int PositionId { get; set; }
         [Required]
         public string PositionEmployee { get; set; }
+
         [Required]
-        public Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Employee
         public string LastName { get; set; }
         public DateTime DailyWorkComplete { get; set; }
 
-        public Position Position { get; set; }
+        public virtual Position Position { get; set; }
         public virtual ICollection<DoneWork> DoneWork { get; set; }
     }
 }

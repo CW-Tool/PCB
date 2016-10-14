@@ -7,6 +7,10 @@ namespace PCB.NET.Domain.Model
     using WorkshopPCB.Map;
     using WorkshopPCB.Warehouse;
 
+    /// <summary>
+    /// Class ModelContext.
+    /// </summary>
+    /// <seealso cref="System.Data.Entity.DbContext" />
     public class ModelContext : DbContext
     {
         public ModelContext()
@@ -26,8 +30,9 @@ namespace PCB.NET.Domain.Model
         public virtual DbSet<SMD> SMDs { get; set; }
         public virtual DbSet<Size> Sizes { get; set; }
         public virtual DbSet<Package> Packages { get; set; }
-        public virtual DbSet<HangingItem> HangingItems { get; set; }
-        public virtual DbSet<SMDItem> SMDItems { get; set; }
+        public virtual DbSet<HangingItemMap> HangingItemMaps { get; set; }
+        public virtual DbSet<SMDItemMap> SMDItemMaps { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
         #endregion
 
         #region Employee DbSet

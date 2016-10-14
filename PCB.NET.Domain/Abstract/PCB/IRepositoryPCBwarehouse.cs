@@ -11,7 +11,8 @@ namespace PCB.NET.Domain.Abstract.PCB
         IQueryable<SMD> SMD { get; }
         IQueryable<Size> Size { get; }
         IQueryable<Package> Package { get; }
-        IQueryable<HangingItem> HangingItem { get; }
-        IQueryable<SMDItem> SMDItem { get; }
+        IQueryable<HangingItemMap> HangingItemMap { get; }
+        IQueryable<SMDItemMap> SMDItemMap { get; }
+        IQueryable<Item> Item { get; }
     }
 }

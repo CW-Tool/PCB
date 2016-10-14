@@ -37,11 +37,19 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
             }
         }
 
-        public IQueryable<HangingItem> HangingItem
+        public IQueryable<HangingItemMap> HangingItemMap
         {
             get
             {
-                return db.HangingItems;
+                return db.HangingItemMaps;
+            }
+        }
+
+        public IQueryable<Item> Item
+        {
+            get
+            {
+                return db.Items;
             }
         }
 
@@ -69,11 +77,11 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
             }
         }
 
-        public IQueryable<SMDItem> SMDItem
+        public IQueryable<SMDItemMap> SMDItemMap
         {
             get
             {
-                return db.SMDItems;
+                return db.SMDItemMaps;
             }
         }
     }

@@ -16,10 +16,13 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Employee
         public DateTime DateTime { get; set; }
         [Required]
         public string Description { get; set; }
+
+
         [Required]
         public int EmployeeId { get; set; }
         [Required]
         public int BoardId { get; set; }
+
 
         public virtual Board Board { get; set; }
         public virtual Employee Employee { get; set; }
