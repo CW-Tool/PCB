@@ -13,6 +13,6 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Employee
         public string PositionEmployee { get; set; }
 
         [Required]
-        public virtual Employee Employee { get; set; }
+        public Employee Employee { get; set; }
     }
 }

@@ -18,15 +18,13 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
 
 
         [Required]
-        [ForeignKey("SMD")]
         public int SMDId { get; set; }
         [Required]
-        [ForeignKey("Hanging")]
         public int HangingId { get; set; }
 
 
-        public virtual SMD SMD { get; set; }
-        public virtual Hanging Hanging { get; set; }
+        public SMD SMD { get; set; }
+        public Hanging Hanging { get; set; }
     }
 
     [Table("HangingItem", Schema = "store")]
@@ -40,8 +38,8 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
         public int BoardId { get; set; }
 
 
-        public virtual Hanging Hanging { get; set; }
-        public virtual Board Board { get; set; }
+        public Hanging Hanging { get; set; }
+        public Board Board { get; set; }
     }
 
     [Table("SMDItem", Schema = "store")]
@@ -55,7 +53,7 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
         public int SmdId { get; set; }
 
 
-        public virtual SMD Smd { get; set; }
-        public virtual Board Board { get; set; }
+        public SMD Smd { get; set; }
+        public Board Board { get; set; }
     }
 }

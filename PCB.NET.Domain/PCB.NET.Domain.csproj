@@ -91,6 +91,7 @@
     <Compile Include="Model\WorkshopPCB\Warehouse\Board.cs" />
     <Compile Include="Model\WorkshopPCB\Warehouse\Hanging.cs" />
     <Compile Include="Model\WorkshopPCB\Warehouse\Item.cs" />
+    <Compile Include="Model\WorkshopPCB\Warehouse\OtherStore.cs" />
     <Compile Include="Model\WorkshopPCB\Warehouse\RatedItem.cs" />
     <Compile Include="Model\WorkshopPCB\Warehouse\SMD.cs" />
     <Compile Include="Model\WorkshopPCB\Warehouse\Size.cs" />

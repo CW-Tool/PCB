@@ -16,7 +16,7 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
 
         [Required]
         public string Sizes { get; set; }
-        public virtual Hanging Hanging { get; set; }
+        public Hanging Hanging { get; set; }
 
     }
 
@@ -32,6 +32,6 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
 
         [Required]
         public string Packs { get; set; }
-        public virtual SMD SMD { get; set; }
+        public SMD SMD { get; set; }
     }
 }

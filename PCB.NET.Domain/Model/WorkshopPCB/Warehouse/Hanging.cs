@@ -13,7 +13,7 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
     {
         [Key]
         public int HangingId { get; set; }
-        public double? ValueItem { get; set; }
+        public double ValueItem { get; set; }
         public RatedItem? RatedItem { get; set; }
         [Required]
         public string DescriptionItem { get; set; }
@@ -24,11 +24,11 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
 
         [Required]
         public int ItemId { get; set; }
-        public virtual Item Item { get; set; }
+        public Item Item { get; set; }
 
         [Required]
         public int SizeId { get; set; }
-        public virtual Size Size { get; set; }
+        public Size Size { get; set; }
 
 
         public virtual ICollection<HangingItemMap> HangingItemMaps { get; set; }
