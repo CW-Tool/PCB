@@ -23,12 +23,13 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
         public string Description { get; set; }
         [Required]
         public DateTime LastUpdate { get; set; }
-        public Ebso Ebso { get; set; }
-        public Dvc Dvc { get; set; }
+
+        public virtual Ebso Ebso { get; set; }
+        public virtual Dvc Dvc { get; set; }
 
         public virtual ICollection<MapBoard> MapBoard { get; set; }
         public virtual ICollection<DoneWork> DoneWork { get; set; }
-        public virtual ICollection<HangingItem> HangingItems { get; set; }
-        public virtual ICollection<SMDItem> SMDItems { get; set; }
+        public virtual ICollection<HangingItemMap> HangingItemMap { get; set; }
+        public virtual ICollection<SMDItemMap> SMDItemMap { get; set; }
     }
 }
