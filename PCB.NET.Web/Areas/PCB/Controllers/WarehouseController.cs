@@ -1,4 +1,5 @@
 ﻿using PCB.NET.Domain.Abstract.PCB;
+using PCB.NET.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,14 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
         }
         public ActionResult Index()
         {
-            var model = _repositoryPCBwarehouse.SMD.OrderBy(m => m.SMDId).ToList();
-            return View(model);
+            //ModelContext db = new ModelContext();
+            //var model = db.SMDs.OrderBy(m => m.SMDId).ToList();
+
+            //int q = 2;
+            //int w = 1;
+            //var e = q - w;
+
+            return View();
         }
     }
 }

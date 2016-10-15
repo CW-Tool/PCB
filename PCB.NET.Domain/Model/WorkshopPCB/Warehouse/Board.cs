@@ -17,7 +17,9 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
         [Key]
         public int BoardId { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string NameBlock { get; set; }
+        [Required]
+        public string Make { get; set; }
         [Required]
         public int CountBoard { get; set; }
         public string Description { get; set; }

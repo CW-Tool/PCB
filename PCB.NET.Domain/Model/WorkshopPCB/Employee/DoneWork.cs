@@ -24,8 +24,8 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Employee
         public int BoardId { get; set; }
 
 
-        public Board Board { get; set; }
-        public Employee Employee { get; set; }
+        public virtual Board Board { get; set; }
+        public virtual Employee Employee { get; set; }
 
     }
 }

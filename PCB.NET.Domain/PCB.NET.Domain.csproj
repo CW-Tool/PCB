@@ -64,10 +64,7 @@
     <Compile Include="Abstract\PCB\IRepositoryPCBmap.cs" />
     <Compile Include="Abstract\PCB\IRepositoryPCBwarehouse.cs" />
     <Compile Include="Abstract\PCB\IRepositoryPCBmachine.cs" />
-    <Compile Include="InitializerDb\EmployeeInitializer.cs" />
-    <Compile Include="InitializerDb\MachineInitializer.cs" />
-    <Compile Include="InitializerDb\MapInitializer.cs" />
-    <Compile Include="InitializerDb\WarehouseInitializer.cs" />
+    <Compile Include="InitializerDb\DbInitializer.cs" />
     <Compile Include="Migrations\201610121213324_first.cs" />
     <Compile Include="Migrations\201610121213324_first.Designer.cs">
       <DependentUpon>201610121213324_first.cs</DependentUpon>
@@ -84,6 +81,30 @@
     <Compile Include="Migrations\201610141116418_fourth.Designer.cs">
       <DependentUpon>201610141116418_fourth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610141321581_fifth.cs" />
+    <Compile Include="Migrations\201610141321581_fifth.Designer.cs">
+      <DependentUpon>201610141321581_fifth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610141725312_sixth.cs" />
+    <Compile Include="Migrations\201610141725312_sixth.Designer.cs">
+      <DependentUpon>201610141725312_sixth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610141804259_seventh.cs" />
+    <Compile Include="Migrations\201610141804259_seventh.Designer.cs">
+      <DependentUpon>201610141804259_seventh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610141956516_eighth.cs" />
+    <Compile Include="Migrations\201610141956516_eighth.Designer.cs">
+      <DependentUpon>201610141956516_eighth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610150620020_ninth.cs" />
+    <Compile Include="Migrations\201610150620020_ninth.Designer.cs">
+      <DependentUpon>201610150620020_ninth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610150631086_ninth1.cs" />
+    <Compile Include="Migrations\201610150631086_ninth1.Designer.cs">
+      <DependentUpon>201610150631086_ninth1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\WorkshopPCB\Employee\DoneWork.cs" />
     <Compile Include="Model\WorkshopPCB\Employee\Employee.cs" />
@@ -94,7 +115,7 @@
     <Compile Include="Model\WorkshopPCB\Machine\Systronic.cs" />
     <Compile Include="Model\WorkshopPCB\Map\MapBoard.cs" />
     <Compile Include="Model\WorkshopPCB\Map\Map.cs" />
-    <Compile Include="Model\ModelDbContext.cs" />
+    <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Model\WorkshopPCB\Warehouse\Board.cs" />
     <Compile Include="Model\WorkshopPCB\Warehouse\Hanging.cs" />
     <Compile Include="Model\WorkshopPCB\Warehouse\Item.cs" />
@@ -138,6 +159,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610141116418_fourth.resx">
       <DependentUpon>201610141116418_fourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610141321581_fifth.resx">
+      <DependentUpon>201610141321581_fifth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610141725312_sixth.resx">
+      <DependentUpon>201610141725312_sixth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610141804259_seventh.resx">
+      <DependentUpon>201610141804259_seventh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610141956516_eighth.resx">
+      <DependentUpon>201610141956516_eighth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610150620020_ninth.resx">
+      <DependentUpon>201610150620020_ninth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610150631086_ninth1.resx">
+      <DependentUpon>201610150631086_ninth1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

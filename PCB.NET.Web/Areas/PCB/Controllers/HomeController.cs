@@ -7,7 +7,6 @@ using System.Web.Mvc;
 
 namespace PCB.NET.Web.Areas.PCB.Controllers
 {
-    [Authorize]
     public class HomeController : DefaultController
     {
         public HomeController(IRepositoryPCBmachine repositoryMachine)

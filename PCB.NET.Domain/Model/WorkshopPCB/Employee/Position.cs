@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PCB.NET.Domain.Model.WorkshopPCB.Employee
@@ -7,12 +8,11 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Employee
     public class Position
     {
         [Key]
-        [ForeignKey("Employee")]
-        public int PositionId { get; set; }
+        public int Id { get; set; }
         [Required]
-        public string PositionEmployee { get; set; }
+        public string PositionEmp { get; set; }
 
-        [Required]
-        public Employee Employee { get; set; }
+
+        public virtual ICollection<Employee> Employee { get; set; }
     }
 }

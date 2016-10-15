@@ -14,5 +14,7 @@ namespace PCB.NET.Domain.Abstract.PCB
         IQueryable<HangingItemMap> HangingItemMap { get; }
         IQueryable<SMDItemMap> SMDItemMap { get; }
         IQueryable<Item> Item { get; }
+        IQueryable<OtherStore> OtherStore { get; }
+        
     }
 }

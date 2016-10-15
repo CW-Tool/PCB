@@ -53,6 +53,14 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
             }
         }
 
+        public IQueryable<OtherStore> OtherStore
+        {
+            get
+            {
+                return db.OtherStores;
+            }
+        }
+
         public IQueryable<Package> Package
         {
             get

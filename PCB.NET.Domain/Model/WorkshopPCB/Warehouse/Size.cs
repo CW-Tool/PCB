@@ -5,18 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
 {
     /// <summary>
-    /// Size SMD, 1206, 2010, 0603...
+    /// Size 5mm, 15mm
     /// </summary>
     [Table("Size", Schema = "store")]
     public class Size
     {
         [Key]
-        [ForeignKey("Hanging")]
         public int SizeId { get; set; }
-
         [Required]
         public string Sizes { get; set; }
-        public Hanging Hanging { get; set; }
+        public virtual ICollection<Hanging> Hanging { get; set; }
 
     }
 
@@ -27,11 +25,9 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
     public class Package
     {
         [Key]
-        [ForeignKey("SMD")]
         public int PackagesId { get; set; }
-
         [Required]
         public string Packs { get; set; }
-        public SMD SMD { get; set; }
+        public virtual ICollection<SMD> SMD { get; set; }
     }
 }

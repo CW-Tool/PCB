@@ -72,6 +72,7 @@ namespace PCB.NET.Domain.Model
         /// </summary>
         /// <value>The items.</value>
         public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<OtherStore> OtherStores { get; set; }
         #endregion
 
         #region Employee DbSet
