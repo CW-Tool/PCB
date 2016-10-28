@@ -1,0 +1,49 @@
+﻿@model PCB.NET.Domain.Model.WorkshopPCB.Warehouse.HangingItemMap
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>HangingItemMap</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Board.NameBlock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Board.NameBlock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hanging.ValueItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hanging.ValueItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameItem)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

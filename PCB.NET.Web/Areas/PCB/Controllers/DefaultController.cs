@@ -7,5 +7,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
     {
         public IRepositoryPCBmachine _repositoryPCBmachine;
         public IRepositoryPCBwarehouse _repositoryPCBwarehouse;
+        public IRepositoryPCBmap _repositoryPCBmap;
+        public IRepositoryPCBemployee _repositoryPCBemployee;
     }
 }

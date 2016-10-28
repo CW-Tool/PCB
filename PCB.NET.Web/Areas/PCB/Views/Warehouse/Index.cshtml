@@ -4,14 +4,14 @@
     Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
 }
 
-<p>
-    @*@foreach (var m in Model)
+<div>
+    @foreach (var m in Model)
     {
-        <ul>
-            <li>
-                @m.DescriptionItem
-            </li>
-        </ul>
-    }*@
-</p>
+        <p>
+
+            @m.ValueItem
+
+        </p>
+    }
+</div>
 

@@ -105,6 +105,14 @@
     <Compile Include="Migrations\201610150631086_ninth1.Designer.cs">
       <DependentUpon>201610150631086_ninth1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610180615456_tenth.cs" />
+    <Compile Include="Migrations\201610180615456_tenth.Designer.cs">
+      <DependentUpon>201610180615456_tenth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610180658083_tenth1.cs" />
+    <Compile Include="Migrations\201610180658083_tenth1.Designer.cs">
+      <DependentUpon>201610180658083_tenth1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\WorkshopPCB\Employee\DoneWork.cs" />
     <Compile Include="Model\WorkshopPCB\Employee\Employee.cs" />
@@ -177,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610150631086_ninth1.resx">
       <DependentUpon>201610150631086_ninth1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610180615456_tenth.resx">
+      <DependentUpon>201610180615456_tenth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610180658083_tenth1.resx">
+      <DependentUpon>201610180658083_tenth1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

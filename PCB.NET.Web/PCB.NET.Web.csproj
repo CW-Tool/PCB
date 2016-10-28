@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -87,6 +95,14 @@
     </Reference>
     <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.3.10\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog.Web, Version=0.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.Web.4.2.1\lib\net35\NLog.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -209,6 +225,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MappingConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -218,14 +235,40 @@
     <Compile Include="Areas\PCB\Controllers\MachineController.cs" />
     <Compile Include="Areas\PCB\Controllers\MapController.cs" />
     <Compile Include="Areas\PCB\Controllers\WarehouseController.cs" />
+    <Compile Include="Areas\PCB\Models\EmployeeViewModel\DoneWorkViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\EmployeeViewModel\EmployeeViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\EmployeeViewModel\PositionViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\ListView.cs" />
+    <Compile Include="Areas\PCB\Models\MachineViewModel\DvcViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\MachineViewModel\EbsoViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\MapViewModel\MapBoardViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\MapViewModel\MapViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\WarehouseViewModel\BoardViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\WarehouseViewModel\GasBalloonViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\WarehouseViewModel\HangingViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\WarehouseViewModel\OtherStoreViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\WarehouseViewModel\PackageViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\WarehouseViewModel\SizeViewModel.cs" />
+    <Compile Include="Areas\PCB\Models\WarehouseViewModel\SMDViewModel.cs" />
     <Compile Include="Areas\PCB\PCBAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BoardsController.cs" />
+    <Compile Include="Controllers\GasBalloonsController.cs" />
+    <Compile Include="Controllers\HangingItemMapsController.cs" />
+    <Compile Include="Controllers\HangingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OtherStoresController.cs" />
+    <Compile Include="Controllers\PackagesController.cs" />
+    <Compile Include="Controllers\SizesController.cs" />
+    <Compile Include="Controllers\SMDItemMapsController.cs" />
+    <Compile Include="Controllers\SMDsController.cs" />
     <Compile Include="Filter\CacheAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -258,6 +301,13 @@
     <Content Include="Areas\PCB\Views\Employee\Index.cshtml" />
     <Content Include="Areas\PCB\Views\Map\Index.cshtml" />
     <Content Include="Areas\PCB\Views\Warehouse\Index.cshtml" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -270,7 +320,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -303,10 +355,59 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Boards\Create.cshtml" />
+    <Content Include="Views\Boards\Delete.cshtml" />
+    <Content Include="Views\Boards\Details.cshtml" />
+    <Content Include="Views\Boards\Edit.cshtml" />
+    <Content Include="Views\Boards\Index.cshtml" />
+    <Content Include="Views\GasBalloons\Create.cshtml" />
+    <Content Include="Views\GasBalloons\Delete.cshtml" />
+    <Content Include="Views\GasBalloons\Details.cshtml" />
+    <Content Include="Views\GasBalloons\Edit.cshtml" />
+    <Content Include="Views\GasBalloons\Index.cshtml" />
+    <Content Include="Views\Hangings\Create.cshtml" />
+    <Content Include="Views\Hangings\Delete.cshtml" />
+    <Content Include="Views\Hangings\Details.cshtml" />
+    <Content Include="Views\Hangings\Edit.cshtml" />
+    <Content Include="Views\Hangings\Index.cshtml" />
+    <Content Include="Views\OtherStores\Create.cshtml" />
+    <Content Include="Views\OtherStores\Delete.cshtml" />
+    <Content Include="Views\OtherStores\Details.cshtml" />
+    <Content Include="Views\OtherStores\Edit.cshtml" />
+    <Content Include="Views\OtherStores\Index.cshtml" />
+    <Content Include="Views\Sizes\Create.cshtml" />
+    <Content Include="Views\Sizes\Delete.cshtml" />
+    <Content Include="Views\Sizes\Details.cshtml" />
+    <Content Include="Views\Sizes\Edit.cshtml" />
+    <Content Include="Views\Sizes\Index.cshtml" />
+    <Content Include="Views\Packages\Create.cshtml" />
+    <Content Include="Views\Packages\Delete.cshtml" />
+    <Content Include="Views\Packages\Details.cshtml" />
+    <Content Include="Views\Packages\Edit.cshtml" />
+    <Content Include="Views\Packages\Index.cshtml" />
+    <Content Include="Views\SMDs\Create.cshtml" />
+    <Content Include="Views\SMDs\Delete.cshtml" />
+    <Content Include="Views\SMDs\Details.cshtml" />
+    <Content Include="Views\SMDs\Edit.cshtml" />
+    <Content Include="Views\SMDs\Index.cshtml" />
+    <Content Include="Views\Items\Create.cshtml" />
+    <Content Include="Views\Items\Delete.cshtml" />
+    <Content Include="Views\Items\Details.cshtml" />
+    <Content Include="Views\Items\Edit.cshtml" />
+    <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\HangingItemMaps\Create.cshtml" />
+    <Content Include="Views\HangingItemMaps\Delete.cshtml" />
+    <Content Include="Views\HangingItemMaps\Details.cshtml" />
+    <Content Include="Views\HangingItemMaps\Edit.cshtml" />
+    <Content Include="Views\HangingItemMaps\Index.cshtml" />
+    <Content Include="Views\SMDItemMaps\Create.cshtml" />
+    <Content Include="Views\SMDItemMaps\Delete.cshtml" />
+    <Content Include="Views\SMDItemMaps\Details.cshtml" />
+    <Content Include="Views\SMDItemMaps\Edit.cshtml" />
+    <Content Include="Views\SMDItemMaps\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\PCB\Models\ViewModel\" />
     <Folder Include="Areas\PCB\Views\Default\" />
   </ItemGroup>
   <ItemGroup>

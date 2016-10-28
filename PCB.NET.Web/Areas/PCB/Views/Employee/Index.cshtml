@@ -1,4 +1,4 @@
-﻿
+﻿@model PCB.NET.Web.Areas.PCB.Models.EmployeeViewModel.EmployeeListViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
@@ -6,3 +6,29 @@
 
 <h2>Index</h2>
 
+<div>
+    @foreach (var m in Model.Employee)
+    {
+        <p>
+            @m.FirstName
+        </p>
+        <p>
+            @m.MidName
+        </p>
+        <p>
+            @m.LastName
+        </p>
+        <p>
+            @m.Id
+        </p>
+        <p>
+            @m.Position.PositionEmp
+        </p>
+        @*<p>
+            @m.DailyWorkComplete
+        </p>
+        <p>
+            @m.DoneWork
+        </p>*@
+    }
+</div>

@@ -10,8 +10,7 @@ namespace PCB.NET.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using Domain.Abstract.PCB;
-    using Domain.Repository.RepositoryPCB;
+    using System.Web.Mvc;
 
     public static class NinjectWebCommon 
     {
@@ -46,10 +45,6 @@ namespace PCB.NET.Web.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>(); 
-                kernel.Bind<IRepositoryPCBmachine>().To<RepositoryPCBmachine>();
-                kernel.Bind<IRepositoryPCBwarehouse>().To<RepositoryPCBwarehouse>();
-                kernel.Bind<IRepositoryPCBemployee>().To<RepositoryPCBemployee>();
-                kernel.Bind<IRepositoryPCBmap>().To<RepositoryPCBmap>();
 
                 RegisterServices(kernel);
                 return kernel;
@@ -67,6 +62,7 @@ namespace PCB.NET.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            DependencyResolver.SetResolver(new PCB.NET.Web.Infrastructure.NinjectDependencyResolver(kernel));
         }        
     }
 }

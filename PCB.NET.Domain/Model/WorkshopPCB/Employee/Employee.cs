@@ -16,7 +16,7 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Employee
         public string MidName { get; set; }
         [Required]
         public string LastName { get; set; }
-        public DateTime DailyWorkComplete { get; set; }
+        public string DescriptionWorker { get; set; }
 
         [Required]
         public int PositionId { get; set; }

@@ -18,7 +18,7 @@ namespace PCB.NET.Web
             filters.Add(new HandleErrorAttribute());
             filters.Add(new WatchFilter());
             filters.Add(new SearchBotFilter());
-            filters.Add(new ETagFiltre());
+            //filters.Add(new ETagFiltre());
             filters.Add(new CompressFilter());
             filters.Add(new WhitespaceFilter());
         }

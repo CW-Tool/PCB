@@ -26,8 +26,8 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
         [Required]
         public DateTime LastUpdate { get; set; }
 
-        public Ebso Ebso { get; set; }
-        public Dvc Dvc { get; set; }
+        public virtual Ebso Ebso { get; set; }
+        public virtual Dvc Dvc { get; set; }
 
         public virtual ICollection<MapBoard> MapBoard { get; set; }
         public virtual ICollection<DoneWork> DoneWork { get; set; }

@@ -11,8 +11,7 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Machine
         [Key]
         [ForeignKey("Board")]
         public int Id { get; set; }
-        [Required]
-        public Board Board { get; set; }
+        public virtual Board Board { get; set; }
         [Required]
         public int TimeSecond { get; set; }
         public string Description { get; set; }

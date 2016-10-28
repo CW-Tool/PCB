@@ -25,9 +25,5 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Warehouse
         public int CountItem { get; set; }
         [Required]
         public DateTime LastUpdate { get; set; }
-
-        [Required]
-        public int ItemId { get; set; }
-        public virtual Item Item { get; set; }
     }
 }

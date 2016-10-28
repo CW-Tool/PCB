@@ -12,7 +12,6 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Map
         public int MapId { get; set; }
         [Required]
         public Month Date { get; set; }
-        [Required]
         public DateTime Modified { get; set; }
 
 

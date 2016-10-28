@@ -30,7 +30,7 @@ namespace PCB.NET.Domain.Model.WorkshopPCB.Map
         public int MapId { get; set; }
 
 
-        public Board Board { get; set; }
-        public Map Map { get; set; }
+        public virtual Board Board { get; set; }
+        public virtual Map Map { get; set; }
     }
 }

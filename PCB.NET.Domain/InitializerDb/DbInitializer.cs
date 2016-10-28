@@ -11,9 +11,10 @@ namespace PCB.NET.Domain.InitializerDb
 {
     /// <summary>
     /// Class DbInitializer.
+    /// DropCreateDatabaseAlways
     /// </summary>
     /// <seealso cref="System.Data.Entity.DropCreateDatabaseAlways{PCB.NET.Domain.Model.ModelContext}" />
-    public class DbInitializer : System.Data.Entity.DropCreateDatabaseAlways<ModelContext>
+    public class DbInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<ModelContext>
     {
         protected override void Seed(PCB.NET.Domain.Model.ModelContext context)
         {
@@ -240,8 +241,8 @@ namespace PCB.NET.Domain.InitializerDb
 
             var otherStore = new List<OtherStore>
             {
-                new OtherStore { OtherStoreId = 1, DescriptionItemOne = "Припой", DescriptionItemTwo = "Палки", CountItem = 20, LastUpdate = DateTime.Now, ItemId = 8 },
-                new OtherStore { OtherStoreId = 2, DescriptionItemOne = "Паста", DescriptionItemTwo = "Банки", CountItem = 24, LastUpdate = DateTime.Now, ItemId = 9 },
+                new OtherStore { OtherStoreId = 1, DescriptionItemOne = "Припой", DescriptionItemTwo = "Палки", CountItem = 20, LastUpdate = DateTime.Now },
+                new OtherStore { OtherStoreId = 2, DescriptionItemOne = "Паста", DescriptionItemTwo = "Банки", CountItem = 24, LastUpdate = DateTime.Now }
 
             };
             otherStore.ForEach(m => context.OtherStores.Add(m));
@@ -262,15 +263,18 @@ namespace PCB.NET.Domain.InitializerDb
             var position = new List<Position>
             {
                 new Position { Id = 1 , PositionEmp = "Инженер по автоматизации систем управления на предприятии" },
-                new Position { Id = 2, PositionEmp = "Монтажник 2-го разряда" }
+                new Position { Id = 2, PositionEmp = "Монтажник 3 -го разряда" },
+                new Position { Id = 3, PositionEmp = "Оператор" }
             };
             position.ForEach(m => context.Positions.Add(m));
             context.SaveChanges();
 
             var employee = new List<Employee>
                 {
-                new Employee { Id = 1, FirstName = "Владимир", MidName = "Владимирович", LastName = "Макаревич", DailyWorkComplete = DateTime.Now, PositionId = 1 },
-                new Employee { Id = 2, FirstName = "Александр", MidName = "Владимирович", LastName = "Жигалов", DailyWorkComplete = DateTime.Now, PositionId = 2 }
+                new Employee { Id = 1, FirstName = "Владимир", MidName = "Владимирович", LastName = "Макаревич", DescriptionWorker = "просто описание рабочего", PositionId = 1 },
+                new Employee { Id = 2, FirstName = "Николай", MidName = "Крест", LastName = "Осмаловский", PositionId = 2 },
+                new Employee { Id = 3, FirstName = "Андрей", MidName = "Бутылка", LastName = "Пакет", PositionId = 2 },
+                new Employee { Id = 4, FirstName = "Дмитрий", MidName = "Наушники", LastName = "Таблетка", PositionId = 3 }
                 };
             employee.ForEach(m => context.Employees.Add(m));
             context.SaveChanges();
