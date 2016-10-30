@@ -82,6 +82,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ControllersPCB\EmployeeControllerTestPcb.cs" />
+    <Compile Include="Controllers\ControllersPCB\HomeControllerTestPcb.cs" />
+    <Compile Include="Controllers\ControllersPCB\MachineControllerTestPcb.cs" />
+    <Compile Include="Controllers\ControllersPCB\MapControllerTestPcb.cs" />
+    <Compile Include="Controllers\ControllersPCB\WarehouseControllerTestPcb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
