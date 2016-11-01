@@ -1,8 +1,50 @@
-﻿
+﻿@model PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel.GasBalloonViewModel
+
 @{
-    ViewBag.Title = "Delete_Balloon";
+    ViewBag.Title = "Удалить";
     Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete_Balloon</h2>
+<h2>Удалить</h2>
 
+<h3>Вы точно хотите удалить?</h3>
+<div>
+    <h4>Балоны с азотом</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BalloonNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BalloonNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateNextModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateNextModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a href="@Url.Action("GasBalloonList")" class="btn btn-default">Назад к списку</a>
+        </div>
+    }
+</div>

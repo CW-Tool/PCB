@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PCB.NET.Web.Areas.PCB.Models
+namespace PCB.NET.Web.Models
 {
     public class ListView
     {

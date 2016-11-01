@@ -1,5 +1,6 @@
 ﻿using PCB.NET.Domain.Abstract.PCB;
 using PCB.NET.Web.Areas.PCB.Models.EmployeeViewModel;
+using PCB.NET.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize),
 
-                ListView = new Models.ListView
+                ListView = new ListView
                 {
                     CurrentPage = page,
                     EntitiesPerPages = PageSize,

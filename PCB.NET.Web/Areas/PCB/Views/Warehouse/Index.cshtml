@@ -1,17 +1,16 @@
-﻿@model List<PCB.NET.Domain.Model.WorkshopPCB.Warehouse.SMD>
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    @foreach (var m in Model)
-    {
+<div class="row">
+    <div class="col-md-12">
+        <h2>Балоны с азотом</h2>
         <p>
-
-            @m.ValueItem
-
+            Регистрация новых балонов
         </p>
-    }
+        <p><a class="btn btn-default" href="@Url.Action("GasBalloonList","Warehouse", new { area = "PCB"})">Открыть &raquo;</a></p>
+    </div>
 </div>
 

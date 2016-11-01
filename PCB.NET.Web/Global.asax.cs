@@ -24,7 +24,7 @@ namespace PCB.NET.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            //MappingConfig.RegisterMapping();
+            MappingConfig.RegisterMapping();
         }
     }
 }

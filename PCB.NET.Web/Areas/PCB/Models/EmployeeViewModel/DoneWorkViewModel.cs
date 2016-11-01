@@ -1,4 +1,5 @@
 ﻿using PCB.NET.Domain.Model.WorkshopPCB.Employee;
+using PCB.NET.Web.Models;
 using System.Collections.Generic;
 
 namespace PCB.NET.Web.Areas.PCB.Models.EmployeeViewModel

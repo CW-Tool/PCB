@@ -2,6 +2,7 @@
 using PCB.NET.Domain.Abstract.PCB;
 using PCB.NET.Domain.Model.WorkshopPCB.Warehouse;
 using PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel;
+using PCB.NET.Web.Models;
 using System;
 using System.Linq;
 using System.Net;
@@ -16,6 +17,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
     /// <seealso cref="PCB.NET.Web.Areas.PCB.Controllers.DefaultController" />
     public class WarehouseController : DefaultController
     {
+        private readonly int PageSize = 5;
         /// <summary>
         /// Initializes a new instance of the <see cref="WarehouseController"/> class.
         /// </summary>
@@ -35,9 +37,26 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
         /// Gases the balloon list.
         /// </summary>
         /// <returns></returns>
-        public ActionResult GasBalloonList()
+        public ActionResult GasBalloonList(int page = 1)
         {
-            var model = _repositoryPCBwarehouse.SMD.OrderBy(m => m.ItemId).ToList();
+            GasBalloonListViewModel model = new GasBalloonListViewModel
+            {
+                GasBalloon = _repositoryPCBwarehouse.GasBalloon
+                    .OrderBy(m => m.GasBalloonId)
+                    .AsEnumerable()
+                    .Reverse()
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize),
+
+                ListView = new ListView
+                {
+                    EntitiesPerPages = PageSize,
+                    CurrentPage = page,
+                    TotalEntities = _repositoryPCBwarehouse.GasBalloon.Count()
+
+                }
+            };
+
 
             return View(model);
         }
@@ -54,11 +73,15 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var model = _repositoryPCBwarehouse.GasBalloon.FirstOrDefault(m => m.GasBalloonId == id);
-            if (model == null)
+
+            IMapper map = MappingConfig.MapperConfigGasBalloon.CreateMapper();
+            GasBalloonViewModel context = map.Map<GasBalloonViewModel>(model);
+
+            if (context == null)
             {
                 return HttpNotFound();
             }
-            return View(model);
+            return View(context);
         }
 
         /// <summary>
@@ -78,6 +101,8 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
             {
                 try
                 {
+                    model.LastUpdate = DateTime.Now;
+
                     IMapper map = MappingConfig.MapperConfigGasBalloon.CreateMapper();
                     GasBalloon context = map.Map<GasBalloon>(model);
 
@@ -107,11 +132,15 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var model = _repositoryPCBwarehouse.GasBalloon.FirstOrDefault(m => m.GasBalloonId == id);
-            if (model == null)
+
+            IMapper map = MappingConfig.MapperConfigGasBalloon.CreateMapper();
+            GasBalloonViewModel context = map.Map<GasBalloonViewModel>(model);
+
+            if (context == null)
             {
                 return HttpNotFound();
             }
-            return View(model);
+            return View(context);
         }
 
         /// <summary>
@@ -154,11 +183,15 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var model = _repositoryPCBwarehouse.GasBalloon.FirstOrDefault(m => m.GasBalloonId == id);
-            if (model == null)
+
+            IMapper map = MappingConfig.MapperConfigGasBalloon.CreateMapper();
+            GasBalloonViewModel context = map.Map<GasBalloonViewModel>(model);
+
+            if (context == null)
             {
                 return HttpNotFound();
             }
-            return View(model);
+            return View(context);
         }
 
         /// <summary>
@@ -186,7 +219,158 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
         #endregion
 
         #region CRUD Hanging
+        public ActionResult HangingList(int page = 1)
+        {
+            GasBalloonListViewModel model = new GasBalloonListViewModel
+            {
+                GasBalloon = _repositoryPCBwarehouse.GasBalloon
+                    .OrderBy(m => m.GasBalloonId)
+                    .AsEnumerable()
+                    .Reverse()
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize),
 
+                ListView = new ListView
+                {
+                    EntitiesPerPages = PageSize,
+                    CurrentPage = page,
+                    TotalEntities = _repositoryPCBwarehouse.GasBalloon.Count()
+
+                }
+            };
+
+
+            return View(model);
+        }
+
+        public ActionResult Details_Hanging(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var model = _repositoryPCBwarehouse.GasBalloon.FirstOrDefault(m => m.GasBalloonId == id);
+
+            IMapper map = MappingConfig.MapperConfigGasBalloon.CreateMapper();
+            GasBalloonViewModel context = map.Map<GasBalloonViewModel>(model);
+
+            if (context == null)
+            {
+                return HttpNotFound();
+            }
+            return View(context);
+        }
+
+        public ActionResult Create_Hanging()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create_Hanging(GasBalloonViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    model.LastUpdate = DateTime.Now;
+
+                    IMapper map = MappingConfig.MapperConfigGasBalloon.CreateMapper();
+                    GasBalloon context = map.Map<GasBalloon>(model);
+
+                    await _repositoryPCBwarehouse.AddGasBalloonAsync(context);
+
+                    ModelState.Clear();
+                    return RedirectToAction("GasBalloonList");
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex);
+                    ModelState.Clear();
+                }
+            }
+            return View(model);
+        }
+
+        public ActionResult Edit_Hanging(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var model = _repositoryPCBwarehouse.GasBalloon.FirstOrDefault(m => m.GasBalloonId == id);
+
+            IMapper map = MappingConfig.MapperConfigGasBalloon.CreateMapper();
+            GasBalloonViewModel context = map.Map<GasBalloonViewModel>(model);
+
+            if (context == null)
+            {
+                return HttpNotFound();
+            }
+            return View(context);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit_Hanging([Bind(Include = "GasBalloonId,BalloonNumber,DateNextModified,LastUpdate")] GasBalloonViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    IMapper map = MappingConfig.MapperConfigGasBalloon.CreateMapper();
+                    GasBalloon context = map.Map<GasBalloon>(model);
+
+                    await _repositoryPCBwarehouse.EditGasBalloonAsync(context);
+
+                    return RedirectToAction("GasBalloonList");
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex);
+                }
+            }
+            return View(model);
+        }
+
+
+        public ActionResult Delete_Hanging(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var model = _repositoryPCBwarehouse.GasBalloon.FirstOrDefault(m => m.GasBalloonId == id);
+
+            IMapper map = MappingConfig.MapperConfigGasBalloon.CreateMapper();
+            GasBalloonViewModel context = map.Map<GasBalloonViewModel>(model);
+
+            if (context == null)
+            {
+                return HttpNotFound();
+            }
+            return View(context);
+        }
+
+
+        [HttpPost, ActionName("Delete_Balloon")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmedHanging(int id)
+        {
+            try
+            {
+                var context = _repositoryPCBwarehouse.GasBalloon.FirstOrDefault(m => m.GasBalloonId == id);
+                await _repositoryPCBwarehouse.DeleteGasBalloonAsync(context);
+
+                return RedirectToAction("GasBalloonList");
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+            return View(id);
+        }
         #endregion
 
         #region CRUD Item
@@ -220,7 +404,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
         #region CRUD Board
 
         #endregion
-        
+
         /// <summary>
         /// Bads the action.
         /// </summary>

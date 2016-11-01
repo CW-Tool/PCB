@@ -25,6 +25,7 @@ namespace PCB.NET.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/font-awesome-4.7.0/css/font-awesome.css",
                       "~/Content/site.css"));
         }
     }
