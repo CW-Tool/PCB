@@ -6,13 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PCB.NET.Domain.Model.WorkshopPCB.Warehouse;
+using System.Data.Entity;
 
 namespace PCB.NET.Domain.Repository.RepositoryPCB
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="PCB.NET.Domain.Abstract.PCB.IRepositoryPCBwarehouse" />
     public class RepositoryPCBwarehouse : IRepositoryPCBwarehouse
     {
         private ModelContext db = new ModelContext();
 
+        #region Properties Warehouse
         public IQueryable<Board> Board
         {
             get
@@ -92,5 +98,83 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
                 return db.SMDItemMaps;
             }
         }
+        #endregion
+
+        #region GasBalloon
+        /// <summary>
+        /// Adds the gas balloon asynchronous.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns></returns>
+        public async Task AddGasBalloonAsync(GasBalloon model)
+        {
+
+            using (var contextDb = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    db.GasBalloons.Add(model);
+                    await db.SaveChangesAsync();
+
+                    contextDb.Commit();
+                }
+                catch (Exception ex)
+                {
+                    // TODO: exception
+                    contextDb.Rollback();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deletes the gas balloon asynchronous.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns></returns>
+        public async Task DeleteGasBalloonAsync(GasBalloon model)
+        {
+            using (var contextDb = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    db.GasBalloons.Remove(model);
+                    await db.SaveChangesAsync();
+                    contextDb.Commit();
+                }
+                catch (Exception ex)
+                {
+                    // TODO: exception
+                    contextDb.Rollback();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Edits the gas balloon asynchronous.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns></returns>
+        public async Task EditGasBalloonAsync(GasBalloon model)
+        {
+            using (var contextDb = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    // 
+                    db.Entry(model).State = EntityState.Modified;
+                    // 
+                    await db.SaveChangesAsync();
+                    // 
+                    contextDb.Commit();
+                }
+                catch (Exception ex)
+                {
+                    // TODO: exception
+                    contextDb.Rollback();
+                }
+            }
+        }
+        #endregion
+
     }
 }

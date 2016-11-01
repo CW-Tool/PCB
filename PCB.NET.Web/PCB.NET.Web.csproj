@@ -231,6 +231,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\PCB\Controllers\DefaultController.cs" />
     <Compile Include="Areas\PCB\Controllers\EmployeeController.cs" />
+    <Compile Include="Areas\PCB\Controllers\GasBalloonsController.cs" />
     <Compile Include="Areas\PCB\Controllers\HomeController.cs" />
     <Compile Include="Areas\PCB\Controllers\MachineController.cs" />
     <Compile Include="Areas\PCB\Controllers\MapController.cs" />
@@ -295,6 +296,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Areas\PCB\Views\GasBalloons\Create.cshtml" />
+    <Content Include="Areas\PCB\Views\GasBalloons\Delete.cshtml" />
+    <Content Include="Areas\PCB\Views\GasBalloons\Details.cshtml" />
+    <Content Include="Areas\PCB\Views\GasBalloons\Edit.cshtml" />
+    <Content Include="Areas\PCB\Views\GasBalloons\Index.cshtml" />
+    <Content Include="Areas\PCB\Views\Warehouse\GasBalloonList.cshtml" />
+    <Content Include="Areas\PCB\Views\Warehouse\Details_Balloon.cshtml" />
+    <Content Include="Areas\PCB\Views\Warehouse\Create_Balloon.cshtml" />
+    <Content Include="Areas\PCB\Views\Warehouse\Edit_Balloon.cshtml" />
+    <Content Include="Areas\PCB\Views\Warehouse\Delete_Balloon.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
