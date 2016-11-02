@@ -98,5 +98,20 @@ namespace PCB.NET.Domain.Abstract.PCB
         /// <param name="model">The model.</param>
         /// <returns></returns>
         Task DeleteGasBalloonAsync(GasBalloon model);
+        Task AddHangingAsync(Hanging context);
+        Task EditHangingAsync(Hanging context);
+        Task DeleteHangingAsync(Hanging context);
+        Task AddSMDAsync(SMD context);
+        Task DeleteSMDAsync(SMD context);
+        Task EditSMDAsync(SMD context);
+        Task DeleteOtherStoreAsync(OtherStore context);
+        Task EditOtherStoreAsync(OtherStore context);
+        Task AddOtherStoreAsync(OtherStore context);
+        Task DeleteSizeAsync(Size context);
+        Task EditSizeAsync(Size context);
+        Task AddSizeAsync(Size context);
+        Task DeletePackageAsync(Package context);
+        Task EditPackageAsync(Package context);
+        Task AddPackageAsync(Package context);
     }
 }

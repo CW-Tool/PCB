@@ -1,0 +1,83 @@
+﻿@model PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel.SMDViewModel
+
+@{
+    ViewBag.Title = "Подробное описание";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Описание </h2>
+
+<div>
+    <h4>СМД элементы</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.NameItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item.NameItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Packages.Packs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.Packs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValueItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValueItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RatedItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatedItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Feeder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Feeder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit_SMD", new { id = Model.SMDId })" class="btn btn-warning">Изменить</a> |
+    <a href="@Url.Action("SMDList")" class="btn btn-default">Назад к списку</a>
+</p>

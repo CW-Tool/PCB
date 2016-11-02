@@ -1,0 +1,82 @@
+﻿@model PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel.OtherStoreViewModel
+
+@{
+    ViewBag.Title = "Удалить";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удалить</h2>
+
+<h3>Вы точно хотите удалить?</h3>
+<div>
+    <h4>Другие элементы</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ValueItemOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValueItemOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValueItemTwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValueItemTwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionItemOne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionItemOne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionItemTwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionItemTwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescriptionItemThree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionItemThree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" /> |
+            <a href="@Url.Action("OtherStoreList")" class="btn btn-default">Назад к списку</a>
+        </div>
+    }
+</div>

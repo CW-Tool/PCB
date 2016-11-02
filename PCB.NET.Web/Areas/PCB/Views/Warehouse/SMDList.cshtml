@@ -1,0 +1,81 @@
+﻿@model PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel.SMDListViewModel
+
+@{
+    ViewBag.Title = "СМД элементы";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <a href="@Url.Action("Create_SMD")" class="btn btn-primary">Добавить новый</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            NameItem
+        </th>
+        <th>
+            Packages.Packs
+        </th>
+        <th>
+            ValueItem
+        </th>
+        <th>
+            RatedItem
+        </th>
+        <th>
+            DescriptionItem
+        </th>
+        <th>
+            Feeder
+        </th>
+        <th>
+            CountItem
+        </th>
+        <th>
+            LastUpdate
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.SMD)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.NameItem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Packages.Packs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValueItem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RatedItem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionItem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feeder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountItem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdate)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit_SMD", new { id = item.SMDId })" class="btn btn-warning btn-sm">Изменить</a> |
+                <a href="@Url.Action("Details_SMD", new { id = item.SMDId })" class="btn btn-info btn-sm">Посмотреть детали</a> |
+                <a href="@Url.Action("Delete_SMD", new { id = item.SMDId })" class="btn btn-danger btn-sm">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
+<ul class="pagination">
+    <li>@Html.PageLinksLeft(Model.ListView, x => Url.Action("SMDList", new { Page = x }))</li>
+    <li>@Html.PageLinks(Model.ListView, x => Url.Action("SMDList", new { Page = x }))</li>
+    <li>@Html.PageLinksRight(Model.ListView, x => Url.Action("SMDList", new { Page = x }))</li>
+</ul>

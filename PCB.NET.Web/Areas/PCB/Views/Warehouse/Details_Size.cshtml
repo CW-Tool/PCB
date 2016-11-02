@@ -1,0 +1,27 @@
+﻿@model PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel.SizeViewModel
+
+@{
+    ViewBag.Title = "Подробное описание";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Описание </h2>
+
+<div>
+    <h4>Размеры</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sizes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sizes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit_Size", new { id = Model.SizeId })" class="btn btn-warning">Изменить</a> |
+    <a href="@Url.Action("SizeList")" class="btn btn-default">Назад к списку</a>
+</p>

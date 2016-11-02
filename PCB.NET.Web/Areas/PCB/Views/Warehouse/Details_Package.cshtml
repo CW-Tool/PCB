@@ -1,0 +1,27 @@
+﻿@model PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel.PackageViewModel
+
+@{
+    ViewBag.Title = "Подробное описание";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Описание </h2>
+
+<div>
+    <h4>Размеры</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Packs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packs)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit_Package", new { id = Model.PackagesId })" class="btn btn-warning">Изменить</a> |
+    <a href="@Url.Action("PackageList")" class="btn btn-default">Назад к списку</a>
+</p>

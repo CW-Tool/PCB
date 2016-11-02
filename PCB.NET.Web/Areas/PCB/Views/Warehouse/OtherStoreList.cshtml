@@ -1,0 +1,75 @@
+﻿@model PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel.OtherStoreListViewModel
+
+@{
+    ViewBag.Title = "Другие элементы";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <a href="@Url.Action("Create_OtherStore")" class="btn btn-primary">Добавить новый</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ValueItemOne
+        </th>
+        <th>
+            ValueItemTwo
+        </th>
+        <th>
+            DescriptionItemOne
+        </th>
+        <th>
+            DescriptionItemTwo
+        </th>
+        <th>
+            DescriptionItemThree
+        </th>
+        <th>
+            CountItem
+        </th>
+        <th>
+            LastUpdate
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.OtherStore)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValueItemOne)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValueItemTwo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionItemOne)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionItemTwo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionItemThree)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountItem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdate)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit_OtherStore", new { id = item.OtherStoreId })" class="btn btn-warning btn-sm">Изменить</a> |
+                <a href="@Url.Action("Details_OtherStore", new { id = item.OtherStoreId })" class="btn btn-info btn-sm">Посмотреть детали</a> |
+                <a href="@Url.Action("Delete_OtherStore", new { id = item.OtherStoreId })" class="btn btn-danger btn-sm">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
+<ul class="pagination">
+    <li>@Html.PageLinksLeft(Model.ListView, x => Url.Action("OtherStoreList", new { Page = x }))</li>
+    <li>@Html.PageLinks(Model.ListView, x => Url.Action("OtherStoreList", new { Page = x }))</li>
+    <li>@Html.PageLinksRight(Model.ListView, x => Url.Action("OtherStoreList", new { Page = x }))</li>
+</ul>

@@ -1,55 +1,86 @@
-﻿//using Microsoft.VisualStudio.TestTools.UnitTesting;
-//using PCB.NET.Domain.Abstract.PCB;
-//using PCB.NET.Web.Areas.PCB.Controllers;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.Web.Mvc;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using PCB.NET.Domain.Abstract.PCB;
+using PCB.NET.Domain.Model.WorkshopPCB.Warehouse;
+using PCB.NET.Web.Areas.PCB.Controllers;
+using System.Web.Mvc;
 
-//namespace PCB.NET.Tests.Controllers.ControllersPCB
-//{
-//    [TestClass]
-//    class WarehouseControllerTestPcb
-//    {
-//        [TestMethod]
-//        public void Index()
-//        {
-//            // Arrange
-//            WarehouseController controller = new WarehouseController(IRepositoryPCBwarehouse repository);
+namespace PCB.NET.Tests.Controllers.ControllersPCB
+{
+    [TestClass]
+    public class WarehouseControllerTestPcb
+    {
+        [TestMethod]
+        public void IndexWarehouse()
+        {
+            var moq = new Mock<IRepositoryPCBwarehouse>();
+            // Arrange
+            WarehouseController controller = new WarehouseController(moq.Object);
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
-//            // Act
-//            ViewResult result = controller.Index() as ViewResult;
+        [TestMethod]
+        public void GasBalloonList()
+        {
+            var moq = new Mock<IRepositoryPCBwarehouse>();
+            // Arrange
+            WarehouseController controller = new WarehouseController(moq.Object);
+            // Act
+            ViewResult result = controller.GasBalloonList() as ViewResult;
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
-//            // Assert
-//            Assert.IsNotNull(result);
-//        }
+        [TestMethod]
+        public void Create_Balloon()
+        {
+            var moq = new Mock<IRepositoryPCBwarehouse>();
+            // Arrange
+            WarehouseController controller = new WarehouseController(moq.Object);
+            // Act
+            ViewResult result = controller.Create_Balloon() as ViewResult;
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
-//        [TestMethod]
-//        public void About()
-//        {
-//            // Arrange
-//            WarehouseController controller = new WarehouseController();
+        //[TestMethod]
+        //public void Edit_Balloon()
+        //{
+        //    var moq = new Mock<IRepositoryPCBwarehouse>();
+        //    //moq.Setup(m => m.GasBalloon).Returns((GasBalloon balloon) => { return } );
+        //    // Arrange
+        //    WarehouseController controller = new WarehouseController(moq.Object);
+        //    // Act
+        //    ViewResult result = controller.Edit_Balloon() as ViewResult;
+        //    // Assert
+        //    Assert.IsNotNull(result);
+        //}
 
-//            // Act
-//            ViewResult result = controller.GasBalloonList() as ViewResult;
+        //[TestMethod]
+        //public void Delete_Balloon()
+        //{
+        //    var moq = new Mock<IRepositoryPCBwarehouse>();
+        //    // Arrange
+        //    WarehouseController controller = new WarehouseController(moq.Object);
+        //    // Act
+        //    ViewResult result = controller.Delete_Balloon() as ViewResult;
+        //    // Assert
+        //    Assert.IsNotNull(result);
+        //}
 
-//            // Assert
-//            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-//        }
-
-//        [TestMethod]
-//        public void Contact()
-//        {
-//            // Arrange
-//            WarehouseController controller = new WarehouseController();
-
-//            // Act
-//            ViewResult result = controller.Create_Balloon() as ViewResult;
-
-//            // Assert
-//            Assert.IsNotNull(result);
-//        }
-//    }
-//}
+        //[TestMethod]
+        //public void Details_Balloon()
+        //{
+        //    var moq = new Mock<IRepositoryPCBwarehouse>();
+        //    // Arrange
+        //    WarehouseController controller = new WarehouseController(moq.Object);
+        //    // Act
+        //    ViewResult result = controller.Details_Balloon() as ViewResult;
+        //    // Assert
+        //    Assert.IsNotNull(result);
+        //}
+    }
+}

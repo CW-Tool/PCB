@@ -176,5 +176,91 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
         }
         #endregion
 
+        #region Hanging
+        public Task EditHangingAsync(Hanging context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteHangingAsync(Hanging context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddHangingAsync(Hanging context)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region SMD
+        public Task EditSMDAsync(SMD context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteSMDAsync(SMD context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddSMDAsync(SMD context)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region OtherStore
+        public Task EditOtherStoreAsync(OtherStore context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteOtherStoreAsync(OtherStore context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddOtherStoreAsync(OtherStore context)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Size
+        public Task DeleteSizeAsync(Size context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task EditSizeAsync(Size context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddSizeAsync(Size context)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Package
+        public Task DeletePackageAsync(Package context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task EditPackageAsync(Package context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddPackageAsync(Package context)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+
     }
 }
