@@ -234,7 +234,6 @@
     <Compile Include="Areas\PCB\Controllers\HomeController.cs" />
     <Compile Include="Areas\PCB\Controllers\MachineController.cs" />
     <Compile Include="Areas\PCB\Controllers\MapController.cs" />
-    <Compile Include="Areas\PCB\Controllers\PositionsController.cs" />
     <Compile Include="Areas\PCB\Controllers\WarehouseController.cs" />
     <Compile Include="Areas\PCB\Models\EmployeeViewModel\DoneWorkViewModel.cs" />
     <Compile Include="Areas\PCB\Models\EmployeeViewModel\EmployeeViewModel.cs" />
@@ -384,6 +383,16 @@
     <Content Include="Areas\PCB\Views\Employee\Details_Position.cshtml" />
     <Content Include="Areas\PCB\Views\Employee\Edit_Position.cshtml" />
     <Content Include="Areas\PCB\Views\Employee\PositionList.cshtml" />
+    <Content Include="Areas\PCB\Views\Machine\Create_Ebso.cshtml" />
+    <Content Include="Areas\PCB\Views\Machine\Delete_Ebso.cshtml" />
+    <Content Include="Areas\PCB\Views\Machine\Details_Ebso.cshtml" />
+    <Content Include="Areas\PCB\Views\Machine\Edit_Ebso.cshtml" />
+    <Content Include="Areas\PCB\Views\Machine\EbsoList.cshtml" />
+    <Content Include="Areas\PCB\Views\Machine\Create_Dvc.cshtml" />
+    <Content Include="Areas\PCB\Views\Machine\Delete_Dvc.cshtml" />
+    <Content Include="Areas\PCB\Views\Machine\Details_Dvc.cshtml" />
+    <Content Include="Areas\PCB\Views\Machine\Edit_Dvc.cshtml" />
+    <Content Include="Areas\PCB\Views\Machine\DvcList.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

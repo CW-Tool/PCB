@@ -16,7 +16,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
 {
     public class EmployeeController : DefaultController
     {
-        public int PageSize = 20;
+        private readonly int PageSize = 20;
         public EmployeeController(IRepositoryPCBemployee repositoryPCBemployee,
             IRepositoryPCBwarehouse repositoryPCBwarehouse)
         {

@@ -18,7 +18,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
     /// <seealso cref="PCB.NET.Web.Areas.PCB.Controllers.DefaultController" />
     public class WarehouseController : DefaultController
     {
-        private readonly int PageSize = 5;
+        private readonly int PageSize = 20;
         /// <summary>
         /// Initializes a new instance of the <see cref="WarehouseController"/> class.
         /// </summary>

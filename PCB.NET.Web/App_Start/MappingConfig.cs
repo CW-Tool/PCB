@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using PCB.NET.Domain.Model.WorkshopPCB.Employee;
+using PCB.NET.Domain.Model.WorkshopPCB.Machine;
 using PCB.NET.Domain.Model.WorkshopPCB.Warehouse;
 using PCB.NET.Web.Areas.PCB.Models.EmployeeViewModel;
+using PCB.NET.Web.Areas.PCB.Models.MachineViewModel;
 using PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel;
 
 namespace PCB.NET.Web
@@ -19,6 +21,8 @@ namespace PCB.NET.Web
         internal static MapperConfiguration MapperConfigEmployee;
         internal static MapperConfiguration MapperConfigDoneWork;
         internal static MapperConfiguration MapperConfigPosition;
+        internal static MapperConfiguration MapperConfigEbso;
+        internal static MapperConfiguration MapperConfigDvc;
         #endregion
 
         #region Mapping
@@ -65,6 +69,14 @@ namespace PCB.NET.Web
             MapperConfigDoneWork = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<DoneWork, DoneWorkViewModel>().ReverseMap();
+            });
+            MapperConfigDvc = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Dvc, DvcViewModel>().ReverseMap();
+            });
+            MapperConfigEbso = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Ebso, EbsoViewModel>().ReverseMap();
             });
         }
         #endregion
