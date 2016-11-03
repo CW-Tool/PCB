@@ -23,15 +23,183 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
         /// Initializes a new instance of the <see cref="WarehouseController"/> class.
         /// </summary>
         /// <param name="repositoryWarehouse">The repository warehouse.</param>
-        public WarehouseController(IRepositoryPCBwarehouse repositoryWarehouse)
+        public WarehouseController(IRepositoryPCBwarehouse repositoryWarehouse,
+            IRepositoryPCBmachine repositoryMachine)
         {
             _repositoryPCBwarehouse = repositoryWarehouse;
+            _repositoryPCBmachine = repositoryMachine;
         }
 
         public ActionResult Index()
         {
             return View();
         }
+
+        #region Board
+        public ActionResult BoardList(int page = 1)
+        {
+            BoardListViewModel model = new BoardListViewModel
+            {
+                Board = _repositoryPCBwarehouse.Board
+                    .Include(b => b.Dvc)
+                    .Include(b => b.Ebso)
+                    .OrderBy(m => m.BoardId)
+                    .AsEnumerable()
+                    .Reverse()
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize),
+
+                ListView = new ListView
+                {
+                    EntitiesPerPages = PageSize,
+                    CurrentPage = page,
+                    TotalEntities = _repositoryPCBwarehouse.Board.Count()
+
+                }
+            };
+
+            return View(model);
+        }
+
+        public async Task<ActionResult> Details_Board(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var model = await _repositoryPCBwarehouse.Board.FirstOrDefaultAsync(m => m.BoardId == id);
+
+            IMapper map = MappingConfig.MapperConfigBoard.CreateMapper();
+            BoardViewModel context = map.Map<BoardViewModel>(model);
+
+            if (context == null)
+            {
+                return HttpNotFound();
+            }
+            return View(context);
+        }
+
+        public ActionResult Create_Board()
+        {
+            ViewBag.BoardId = new SelectList(_repositoryPCBmachine.Dvc, "Id", "Description");
+            ViewBag.BoardId = new SelectList(_repositoryPCBmachine.Ebso, "Id", "Description");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create_Board([Bind(Include = "BoardId,NameBlock,Make,CountBoard,Description,LastUpdate")] BoardViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    model.LastUpdate = DateTime.Now;
+
+                    IMapper map = MappingConfig.MapperConfigBoard.CreateMapper();
+                    Board context = map.Map<Board>(model);
+
+                    await _repositoryPCBwarehouse.AddBoardAsync(context);
+
+                    ModelState.Clear();
+                    return RedirectToAction("BoardList");
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex);
+                    ModelState.Clear();
+                }
+            }
+            ViewBag.BoardId = new SelectList(_repositoryPCBmachine.Dvc, "Id", "Description", model.BoardId);
+            ViewBag.BoardId = new SelectList(_repositoryPCBmachine.Ebso, "Id", "Description", model.BoardId);
+            return View(model);
+        }
+
+        public async Task<ActionResult> Edit_Board(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var model = await _repositoryPCBwarehouse.Board.FirstOrDefaultAsync(m => m.BoardId == id);
+
+            IMapper map = MappingConfig.MapperConfigBoard.CreateMapper();
+            BoardViewModel context = map.Map<BoardViewModel>(model);
+
+            if (context == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.BoardId = new SelectList(_repositoryPCBmachine.Dvc, "Id", "Description", model.BoardId);
+            ViewBag.BoardId = new SelectList(_repositoryPCBmachine.Ebso, "Id", "Description", model.BoardId);
+            return View(context);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit_Board([Bind(Include = "BoardId,NameBlock,Make,CountBoard,Description,LastUpdate")] BoardViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    IMapper map = MappingConfig.MapperConfigBoard.CreateMapper();
+                    Board context = map.Map<Board>(model);
+
+                    await _repositoryPCBwarehouse.EditBoardAsync(context);
+
+                    return RedirectToAction("BoardList");
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex);
+                }
+            }
+            ViewBag.BoardId = new SelectList(_repositoryPCBmachine.Dvc, "Id", "Description", model.BoardId);
+            ViewBag.BoardId = new SelectList(_repositoryPCBmachine.Ebso, "Id", "Description", model.BoardId);
+            return View(model);
+        }
+
+
+        public async Task<ActionResult> Delete_Board(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var model = await _repositoryPCBwarehouse.Board.FirstOrDefaultAsync(m => m.BoardId == id);
+
+            IMapper map = MappingConfig.MapperConfigBoard.CreateMapper();
+            BoardViewModel context = map.Map<BoardViewModel>(model);
+
+            if (context == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(context);
+        }
+
+
+        [HttpPost, ActionName("Delete_Board")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmedBoard(int id)
+        {
+            try
+            {
+                var context = await _repositoryPCBwarehouse.Board.FirstOrDefaultAsync(m => m.BoardId == id);
+                await _repositoryPCBwarehouse.DeleteBoardAsync(context);
+
+                return RedirectToAction("BoardList");
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+            return RedirectToAction("Delete_Board", id);
+        }
+        #endregion
 
         #region CRUD GasBalloon
         /// <summary>

@@ -1,34 +1,28 @@
-﻿@model PCB.NET.Web.Areas.PCB.Models.EmployeeViewModel.EmployeeListViewModel
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Работа с персоналом";
     Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<div>
-    @foreach (var m in Model.Employee)
-    {
+<div class="row">
+    <div class="col-md-12">
+        <h2>Рабочий персонал</h2>
         <p>
-            @m.FirstName
+            Добавление/удаление/изменение работников
         </p>
+        <p><a class="btn btn-default" href="@Url.Action("EmployeeList","Employee", new { area = "PCB"})">Открыть &raquo;</a></p>
+    </div>
+    <div class="col-md-12">
+        <h2>Выполненная работа</h2>
         <p>
-            @m.MidName
+            Ежедневная регистрация выполненной работы
         </p>
+        <p><a class="btn btn-default" href="@Url.Action("DoneWorkList","Employee", new { area = "PCB"})">Открыть &raquo;</a></p>
+    </div>
+    <div class="col-md-12">
+        <h2>Должности работников</h2>
         <p>
-            @m.LastName
+            Добавление/удаление/изменение должностей
         </p>
-        <p>
-            @m.Id
-        </p>
-        <p>
-            @m.Position.PositionEmp
-        </p>
-        @*<p>
-            @m.DailyWorkComplete
-        </p>
-        <p>
-            @m.DoneWork
-        </p>*@
-    }
+        <p><a class="btn btn-default" href="@Url.Action("PositionList","Employee", new { area = "PCB"})">Открыть &raquo;</a></p>
+    </div>
 </div>

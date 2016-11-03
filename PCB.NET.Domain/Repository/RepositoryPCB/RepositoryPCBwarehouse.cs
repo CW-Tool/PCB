@@ -261,6 +261,23 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
         }
         #endregion
 
+        #region Board
+        public Task AddBoardAsync(Board context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteBoardAsync(Board context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task EditBoardAsync(Board context)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
 
     }
 }

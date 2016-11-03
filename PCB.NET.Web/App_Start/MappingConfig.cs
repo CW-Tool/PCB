@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using PCB.NET.Domain.Model.WorkshopPCB.Employee;
 using PCB.NET.Domain.Model.WorkshopPCB.Warehouse;
+using PCB.NET.Web.Areas.PCB.Models.EmployeeViewModel;
 using PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel;
 
 namespace PCB.NET.Web
@@ -13,6 +15,10 @@ namespace PCB.NET.Web
         internal static MapperConfiguration MapperConfigOtherStore;
         internal static MapperConfiguration MapperConfigSize;
         internal static MapperConfiguration MapperConfigPackage;
+        internal static MapperConfiguration MapperConfigBoard;
+        internal static MapperConfiguration MapperConfigEmployee;
+        internal static MapperConfiguration MapperConfigDoneWork;
+        internal static MapperConfiguration MapperConfigPosition;
         #endregion
 
         #region Mapping
@@ -43,6 +49,22 @@ namespace PCB.NET.Web
             MapperConfigPackage = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Package, PackageViewModel>().ReverseMap();
+            });
+            MapperConfigBoard = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Board, BoardViewModel>().ReverseMap();
+            });
+            MapperConfigEmployee = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Employee, EmployeeViewModel>().ReverseMap();
+            });
+            MapperConfigPosition = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Position, PositionViewModel>().ReverseMap();
+            });
+            MapperConfigDoneWork = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<DoneWork, DoneWorkViewModel>().ReverseMap();
             });
         }
         #endregion

@@ -1,0 +1,39 @@
+﻿@model PCB.NET.Web.Areas.PCB.Models.EmployeeViewModel.PositionListViewModel
+
+@{
+    ViewBag.Title = "Должности работников";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <a href="@Url.Action("Create_Position")" class="btn btn-primary">Добавить новый</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            PositionEmp
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Position)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionEmp)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit_Position", new { id = item.Id })" class="btn btn-warning btn-sm">Изменить</a> |
+                <a href="@Url.Action("Details_Position", new { id = item.Id })" class="btn btn-info btn-sm">Посмотреть детали</a> |
+                <a href="@Url.Action("Delete_Position", new { id = item.Id })" class="btn btn-danger btn-sm">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
+<ul class="pagination">
+    <li>@Html.PageLinksLeft(Model.ListView, x => Url.Action("PositionList", new { Page = x }))</li>
+    <li>@Html.PageLinks(Model.ListView, x => Url.Action("PositionList", new { Page = x }))</li>
+    <li>@Html.PageLinksRight(Model.ListView, x => Url.Action("PositionList", new { Page = x }))</li>
+</ul>

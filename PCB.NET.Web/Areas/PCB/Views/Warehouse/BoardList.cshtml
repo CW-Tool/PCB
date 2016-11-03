@@ -1,0 +1,75 @@
+﻿@model PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel.BoardListViewModel
+
+@{
+    ViewBag.Title = "Платы";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <a href="@Url.Action("Create_Board")" class="btn btn-primary">Добавить новый</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Description
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            NameBlock
+        </th>
+        <th>
+            Make
+        </th>
+        <th>
+            CountBoard
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            LastUpdate
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Board)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dvc.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ebso.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameBlock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountBoard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdate)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit_Board", new { id = item.BoardId })" class="btn btn-warning btn-sm">Изменить</a> |
+                <a href="@Url.Action("Details_Board", new { id = item.BoardId })" class="btn btn-info btn-sm">Посмотреть детали</a> |
+                <a href="@Url.Action("Delete_Board", new { id = item.BoardId })" class="btn btn-danger btn-sm">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
+<ul class="pagination">
+    <li>@Html.PageLinksLeft(Model.ListView, x => Url.Action("BoardList", new { Page = x }))</li>
+    <li>@Html.PageLinks(Model.ListView, x => Url.Action("BoardList", new { Page = x }))</li>
+    <li>@Html.PageLinksRight(Model.ListView, x => Url.Action("BoardList", new { Page = x }))</li>
+</ul>

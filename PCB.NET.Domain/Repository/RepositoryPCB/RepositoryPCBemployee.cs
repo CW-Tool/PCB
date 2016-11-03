@@ -11,13 +11,14 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
 {
     public class RepositoryPCBemployee : IRepositoryPCBemployee
     {
-        private ModelContext dbd = new ModelContext();
+        private ModelContext db = new ModelContext();
 
+        #region Propertiees
         public IQueryable<DoneWork> DoneWork
         {
             get
             {
-                return dbd.DoneWorks;
+                return db.DoneWorks;
             }
         }
 
@@ -25,7 +26,7 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
         {
             get
             {
-                return dbd.Employees;
+                return db.Employees;
             }
         }
 
@@ -33,8 +34,61 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
         {
             get
             {
-                return dbd.Positions;
+                return db.Positions;
             }
         }
+        #endregion
+
+        #region Methods Employee
+        public Task AddEmployeeAsync(Employee context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteEmployeeAsync(Employee context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task EditEmployeeAsync(Employee context)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Methods DoneWork
+        public Task AddDoneWorkAsync(DoneWork context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task EditDoneWorkAsync(DoneWork context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteDoneWorkAsync(DoneWork context)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Methods Position
+        public Task EditPositionAsync(Position context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeletePositionAsync(Position context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddPositionAsync(Position context)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

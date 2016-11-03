@@ -234,6 +234,7 @@
     <Compile Include="Areas\PCB\Controllers\HomeController.cs" />
     <Compile Include="Areas\PCB\Controllers\MachineController.cs" />
     <Compile Include="Areas\PCB\Controllers\MapController.cs" />
+    <Compile Include="Areas\PCB\Controllers\PositionsController.cs" />
     <Compile Include="Areas\PCB\Controllers\WarehouseController.cs" />
     <Compile Include="Areas\PCB\Models\EmployeeViewModel\DoneWorkViewModel.cs" />
     <Compile Include="Areas\PCB\Models\EmployeeViewModel\EmployeeViewModel.cs" />
@@ -363,6 +364,26 @@
     <Content Include="Areas\PCB\Views\Warehouse\Details_Package.cshtml" />
     <Content Include="Areas\PCB\Views\Warehouse\Edit_Package.cshtml" />
     <Content Include="Areas\PCB\Views\Warehouse\PackageList.cshtml" />
+    <Content Include="Areas\PCB\Views\Warehouse\Create_Board.cshtml" />
+    <Content Include="Areas\PCB\Views\Warehouse\Delete_Board.cshtml" />
+    <Content Include="Areas\PCB\Views\Warehouse\Details_Board.cshtml" />
+    <Content Include="Areas\PCB\Views\Warehouse\Edit_Board.cshtml" />
+    <Content Include="Areas\PCB\Views\Warehouse\BoardList.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Create_Employee.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Delete_Employee.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Details_Employee.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Edit_Employee.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\EmployeeList.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Create_DoneWork.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Delete_DoneWork.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Details_DoneWork.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Edit_DoneWork.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\DoneWorkList.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Create_Position.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Delete_Position.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Details_Position.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\Edit_Position.cshtml" />
+    <Content Include="Areas\PCB\Views\Employee\PositionList.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

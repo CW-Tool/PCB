@@ -110,8 +110,11 @@ namespace PCB.NET.Domain.Abstract.PCB
         Task DeleteSizeAsync(Size context);
         Task EditSizeAsync(Size context);
         Task AddSizeAsync(Size context);
+        Task AddBoardAsync(Board context);
         Task DeletePackageAsync(Package context);
         Task EditPackageAsync(Package context);
         Task AddPackageAsync(Package context);
+        Task DeleteBoardAsync(Board context);
+        Task EditBoardAsync(Board context);
     }
 }
