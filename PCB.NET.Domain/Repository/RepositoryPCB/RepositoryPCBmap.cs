@@ -13,6 +13,7 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
     {
         private ModelContext db = new ModelContext();
 
+        #region Properties
         public IQueryable<MapBoard> MapBoard
         {
             get
@@ -28,5 +29,41 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
                 return db.Maps;
             }
         }
+        #endregion
+
+        #region Map
+        public Task AddMapAsync(Map context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteMapAsync(Map context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task EditMapAsync(Map context)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region MapBoard
+
+        public Task AddMapBoardAsync(MapBoard context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task EditMapBoardAsync(MapBoard context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteMapBoardAsync(MapBoard context)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

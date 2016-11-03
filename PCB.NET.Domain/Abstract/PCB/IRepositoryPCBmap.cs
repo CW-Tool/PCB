@@ -11,5 +11,12 @@ namespace PCB.NET.Domain.Abstract.PCB
     {
         IQueryable<Map> Map { get; }
         IQueryable<MapBoard> MapBoard { get; }
+
+        Task AddMapAsync(Map context);
+        Task DeleteMapAsync(Map context);
+        Task EditMapAsync(Map context);
+        Task AddMapBoardAsync(MapBoard context);
+        Task EditMapBoardAsync(MapBoard context);
+        Task DeleteMapBoardAsync(MapBoard context);
     }
 }

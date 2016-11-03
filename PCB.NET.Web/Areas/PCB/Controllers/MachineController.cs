@@ -23,7 +23,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
             _repositoryPCBmachine = repositoryPCBmachine;
             _repositoryPCBwarehouse = repositoryPCBwarehouse;
         }
-        // GET: PCB/Machine
+
         public ActionResult Index()
         {
             return View();
@@ -35,7 +35,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
             EbsoListViewModel model = new EbsoListViewModel
             {
                 Ebso = _repositoryPCBmachine.Ebso
-                    .Include(e => e.Board)  
+                    .Include(e => e.Board)
                     .OrderBy(m => m.Id)
                     .AsEnumerable()
                     .Reverse()
@@ -271,7 +271,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
             var model = await _repositoryPCBmachine.Dvc.FirstOrDefaultAsync(m => m.Id == id);
 
             IMapper map = MappingConfig.MapperConfigDvc.CreateMapper();
-            DvcViewModel context = map.Map<DvcViewModel> (model);
+            DvcViewModel context = map.Map<DvcViewModel>(model);
 
             if (context == null)
             {

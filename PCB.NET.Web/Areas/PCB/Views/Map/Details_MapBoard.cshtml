@@ -1,0 +1,83 @@
+﻿@model PCB.NET.Web.Areas.PCB.Models.MapViewModel.MapBoardViewModel
+
+@{
+    ViewBag.Title = "Подробное описание";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Описание </h2>
+
+<div>
+    <h4>Связи плана</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Board.NameBlock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Board.NameBlock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Map.MapId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Map.MapId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountBoard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountBoard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountHanging)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountHanging)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountDvc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountDvc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountEbso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountEbso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountPreComplete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountPreComplete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountReadyDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountReadyDone)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit_MapBoard", new { id = Model.SingleMapBoardId })" class="btn btn-warning">Изменить</a> |
+    <a href="@Url.Action("MapBoardList")" class="btn btn-default">Назад к списку</a>
+</p>

@@ -1,0 +1,81 @@
+﻿@model PCB.NET.Web.Areas.PCB.Models.MapViewModel.MapBoardListViewModel
+
+@{
+    ViewBag.Title = "Связь плана";
+    Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <a href="@Url.Action("Create_MapBoard")" class="btn btn-primary">Добавить новый</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            NameBlock
+        </th>
+        <th>
+            MapId
+        </th>
+        <th>
+            CountBoard
+        </th>
+        <th>
+            CountHanging
+        </th>
+        <th>
+            CountDvc
+        </th>
+        <th>
+            CountEbso
+        </th>
+        <th>
+            CountPreComplete
+        </th>
+        <th>
+            CountReadyDone
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.MapBoard)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Board.NameBlock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Map.MapId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountBoard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountHanging)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountDvc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountEbso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountPreComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountReadyDone)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit_MapBoard", new { id = item.SingleMapBoardId })" class="btn btn-warning btn-sm">Изменить</a> |
+                <a href="@Url.Action("Details_MapBoard", new { id = item.SingleMapBoardId })" class="btn btn-info btn-sm">Посмотреть детали</a> |
+                <a href="@Url.Action("Delete_MapBoard", new { id = item.SingleMapBoardId })" class="btn btn-danger btn-sm">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
+<ul class="pagination">
+    <li>@Html.PageLinksLeft(Model.ListView, x => Url.Action("MapBoardList", new { Page = x }))</li>
+    <li>@Html.PageLinks(Model.ListView, x => Url.Action("MapBoardList", new { Page = x }))</li>
+    <li>@Html.PageLinksRight(Model.ListView, x => Url.Action("MapBoardList", new { Page = x }))</li>
+</ul>

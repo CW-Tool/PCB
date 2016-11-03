@@ -393,6 +393,16 @@
     <Content Include="Areas\PCB\Views\Machine\Details_Dvc.cshtml" />
     <Content Include="Areas\PCB\Views\Machine\Edit_Dvc.cshtml" />
     <Content Include="Areas\PCB\Views\Machine\DvcList.cshtml" />
+    <Content Include="Areas\PCB\Views\Map\Create_Map.cshtml" />
+    <Content Include="Areas\PCB\Views\Map\Delete_Map.cshtml" />
+    <Content Include="Areas\PCB\Views\Map\Details_Map.cshtml" />
+    <Content Include="Areas\PCB\Views\Map\Edit_Map.cshtml" />
+    <Content Include="Areas\PCB\Views\Map\MapList.cshtml" />
+    <Content Include="Areas\PCB\Views\Map\Create_MapBoard.cshtml" />
+    <Content Include="Areas\PCB\Views\Map\Delete_MapBoard.cshtml" />
+    <Content Include="Areas\PCB\Views\Map\Details_MapBoard.cshtml" />
+    <Content Include="Areas\PCB\Views\Map\Edit_MapBoard.cshtml" />
+    <Content Include="Areas\PCB\Views\Map\MapBoardList.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
