@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PCB.NET.Domain.Model.WorkshopPCB.Map;
+using System.Data.Entity;
 
 namespace PCB.NET.Domain.Repository.RepositoryPCB
 {
@@ -32,37 +33,89 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
         #endregion
 
         #region Map
-        public Task AddMapAsync(Map context)
+        public async Task AddMapAsync(Map context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                context.Modified = DateTime.Now;
+
+                db.Maps.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeleteMapAsync(Map context)
+        public async Task DeleteMapAsync(Map context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Maps.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task EditMapAsync(Map context)
+        public async Task EditMapAsync(Map context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                context.Modified = DateTime.Now;
+
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
         #region MapBoard
 
-        public Task AddMapBoardAsync(MapBoard context)
+        public async Task AddMapBoardAsync(MapBoard context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.MapBoards.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task EditMapBoardAsync(MapBoard context)
+        public async Task EditMapBoardAsync(MapBoard context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeleteMapBoardAsync(MapBoard context)
+        public async Task DeleteMapBoardAsync(MapBoard context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.MapBoards.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
     }

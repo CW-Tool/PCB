@@ -10,6 +10,7 @@ namespace PCB.NET.Web.Areas.PCB.Models.MapViewModel
     {
         public IEnumerable<MapBoard> MapBoard { get; set; }
         public ListView ListView { get; set; }
+        public int CurrentMap { get; set; }
     }
 
     public class MapBoardViewModel

@@ -332,7 +332,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
         }
 
 
-        [HttpPost, ActionName("Delete_Employee")]
+        [HttpPost, ActionName("Delete_DoneWork")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmedDoneWork(int id)
         {

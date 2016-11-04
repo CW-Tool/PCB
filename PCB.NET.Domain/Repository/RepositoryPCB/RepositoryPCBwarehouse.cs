@@ -108,21 +108,14 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
         /// <returns></returns>
         public async Task AddGasBalloonAsync(GasBalloon model)
         {
-
-            using (var contextDb = db.Database.BeginTransaction())
+            try
             {
-                try
-                {
-                    db.GasBalloons.Add(model);
-                    await db.SaveChangesAsync();
-
-                    contextDb.Commit();
-                }
-                catch (Exception ex)
-                {
-                    // TODO: exception
-                    contextDb.Rollback();
-                }
+                db.GasBalloons.Add(model);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -133,19 +126,14 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
         /// <returns></returns>
         public async Task DeleteGasBalloonAsync(GasBalloon model)
         {
-            using (var contextDb = db.Database.BeginTransaction())
+            try
             {
-                try
-                {
-                    db.GasBalloons.Remove(model);
-                    await db.SaveChangesAsync();
-                    contextDb.Commit();
-                }
-                catch (Exception ex)
-                {
-                    // TODO: exception
-                    contextDb.Rollback();
-                }
+                db.GasBalloons.Remove(model);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -156,128 +144,263 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
         /// <returns></returns>
         public async Task EditGasBalloonAsync(GasBalloon model)
         {
-            using (var contextDb = db.Database.BeginTransaction())
+            try
             {
-                try
-                {
-                    // 
-                    db.Entry(model).State = EntityState.Modified;
-                    // 
-                    await db.SaveChangesAsync();
-                    // 
-                    contextDb.Commit();
-                }
-                catch (Exception ex)
-                {
-                    // TODO: exception
-                    contextDb.Rollback();
-                }
+                db.Entry(model).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
         #endregion
 
         #region Hanging
-        public Task EditHangingAsync(Hanging context)
+        public async Task EditHangingAsync(Hanging context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeleteHangingAsync(Hanging context)
+        public async Task DeleteHangingAsync(Hanging context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Hangings.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task AddHangingAsync(Hanging context)
+        public async Task AddHangingAsync(Hanging context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Hangings.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
         #region SMD
-        public Task EditSMDAsync(SMD context)
+        public async Task EditSMDAsync(SMD context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeleteSMDAsync(SMD context)
+        public async Task DeleteSMDAsync(SMD context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.SMDs.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task AddSMDAsync(SMD context)
+        public async Task AddSMDAsync(SMD context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.SMDs.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
         #region OtherStore
-        public Task EditOtherStoreAsync(OtherStore context)
+        public async Task EditOtherStoreAsync(OtherStore context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeleteOtherStoreAsync(OtherStore context)
+        public async Task DeleteOtherStoreAsync(OtherStore context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.OtherStores.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task AddOtherStoreAsync(OtherStore context)
+        public async Task AddOtherStoreAsync(OtherStore context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.OtherStores.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
         #region Size
-        public Task DeleteSizeAsync(Size context)
+        public async Task DeleteSizeAsync(Size context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Sizes.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task EditSizeAsync(Size context)
+        public async Task EditSizeAsync(Size context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task AddSizeAsync(Size context)
+        public async Task AddSizeAsync(Size context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Sizes.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
         #region Package
-        public Task DeletePackageAsync(Package context)
+        public async Task DeletePackageAsync(Package context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Packages.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task EditPackageAsync(Package context)
+        public async Task EditPackageAsync(Package context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task AddPackageAsync(Package context)
+        public async Task AddPackageAsync(Package context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Packages.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
         #region Board
-        public Task AddBoardAsync(Board context)
+        public async Task AddBoardAsync(Board context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Boards.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeleteBoardAsync(Board context)
+        public async Task DeleteBoardAsync(Board context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Boards.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task EditBoardAsync(Board context)
+        public async Task EditBoardAsync(Board context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
-
 
     }
 }

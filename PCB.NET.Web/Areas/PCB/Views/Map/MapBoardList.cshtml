@@ -1,15 +1,20 @@
 ﻿@model PCB.NET.Web.Areas.PCB.Models.MapViewModel.MapBoardListViewModel
 
 @{
-    ViewBag.Title = "Связь плана";
+    ViewBag.Title = "Текущий план";
     Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
 
-<p>
-    <a href="@Url.Action("Create_MapBoard")" class="btn btn-primary">Добавить новый</a>
-</p>
+<div>
+    <p><a class="btn btn-default" href="@Url.Action("Index","Map", new { area = "PCB"})">&laquo; Назад</a></p>
+    <hr />
+    <p>
+        <a href="@Url.Action("Create_MapBoard", "Map", new { id = Model.CurrentMap })" class="btn btn-primary">Добавить позицию</a>
+    </p>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -46,7 +51,7 @@
                 @Html.DisplayFor(modelItem => item.Board.NameBlock)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Map.MapId)
+                @Html.DisplayFor(modelItem => item.Map.Date)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CountBoard)

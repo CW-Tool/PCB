@@ -35,7 +35,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
             return View();
         }
 
-        #region Board
+        #region CRUD Board
         public ActionResult BoardList(int page = 1)
         {
             BoardListViewModel model = new BoardListViewModel
@@ -1187,10 +1187,6 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
         #endregion
 
         #region CRUD SMDItemMap
-
-        #endregion
-
-        #region CRUD Board
 
         #endregion
 

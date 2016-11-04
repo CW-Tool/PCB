@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PCB.NET.Domain.Model.WorkshopPCB.Employee;
+using System.Data.Entity;
 
 namespace PCB.NET.Domain.Repository.RepositoryPCB
 {
@@ -40,55 +41,126 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
         #endregion
 
         #region Methods Employee
-        public Task AddEmployeeAsync(Employee context)
+        public async Task AddEmployeeAsync(Employee context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Employees.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeleteEmployeeAsync(Employee context)
+        public async Task DeleteEmployeeAsync(Employee context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Employees.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task EditEmployeeAsync(Employee context)
+        public async Task EditEmployeeAsync(Employee context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
         #region Methods DoneWork
-        public Task AddDoneWorkAsync(DoneWork context)
+        public async Task AddDoneWorkAsync(DoneWork context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.DoneWorks.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task EditDoneWorkAsync(DoneWork context)
+        public async Task EditDoneWorkAsync(DoneWork context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeleteDoneWorkAsync(DoneWork context)
+        public async Task DeleteDoneWorkAsync(DoneWork context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.DoneWorks.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
         #region Methods Position
-        public Task EditPositionAsync(Position context)
+        public async Task EditPositionAsync(Position context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeletePositionAsync(Position context)
+        public async Task DeletePositionAsync(Position context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Positions.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task AddPositionAsync(Position context)
+        public async Task AddPositionAsync(Position context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Positions.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-
         #endregion
     }
 }

@@ -23,22 +23,16 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
             _repositoryPCBmap = repositoryPCBmap;
             _repositoryPCBwarehouse = repositoryPCBwarehouse;
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        #region Map
-        public ActionResult MapList(int page = 1)
+        public ActionResult Index(int page = 1)
         {
             MapListViewModel model = new MapListViewModel
             {
                 Map = _repositoryPCBmap.Map
-                    .OrderBy(m => m.MapId)
-                    .AsEnumerable()
-                    .Reverse()
-                    .Skip((page - 1) * PageSize)
-                    .Take(PageSize),
+        .OrderBy(m => m.MapId)
+        .AsEnumerable()
+        .Reverse()
+        .Skip((page - 1) * PageSize)
+        .Take(PageSize),
 
                 ListView = new ListView
                 {
@@ -51,6 +45,30 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
 
             return View(model);
         }
+
+        #region Map
+        //public ActionResult MapList(int page = 1)
+        //{
+        //    MapListViewModel model = new MapListViewModel
+        //    {
+        //        Map = _repositoryPCBmap.Map
+        //            .OrderBy(m => m.MapId)
+        //            .AsEnumerable()
+        //            .Reverse()
+        //            .Skip((page - 1) * PageSize)
+        //            .Take(PageSize),
+
+        //        ListView = new ListView
+        //        {
+        //            EntitiesPerPages = PageSize,
+        //            CurrentPage = page,
+        //            TotalEntities = _repositoryPCBmap.Map.Count()
+
+        //        }
+        //    };
+
+        //    return View(model);
+        //}
 
         public async Task<ActionResult> Details_Map(int? id)
         {
@@ -89,7 +107,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                     await _repositoryPCBmap.AddMapAsync(context);
 
                     ModelState.Clear();
-                    return RedirectToAction("MapList");
+                    return RedirectToAction("Index");
                 }
                 catch (Exception ex)
                 {
@@ -131,7 +149,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
 
                     await _repositoryPCBmap.EditMapAsync(context);
 
-                    return RedirectToAction("MapList");
+                    return RedirectToAction("Index");
                 }
                 catch (Exception ex)
                 {
@@ -171,7 +189,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                 var context = await _repositoryPCBmap.Map.FirstOrDefaultAsync(m => m.MapId == id);
                 await _repositoryPCBmap.DeleteMapAsync(context);
 
-                return RedirectToAction("MapList");
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
@@ -179,10 +197,31 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
             }
             return RedirectToAction("Delete_Map", id);
         }
+
+        //public async Task<ActionResult> Modified(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    var model = await _repositoryPCBmap.MapBoard.FirstOrDefaultAsync(m => m.SingleMapBoardId == id);
+
+        //    IMapper map = MappingConfig.MapperConfigMapBoard.CreateMapper();
+        //    MapBoardViewModel context = map.Map<MapBoardViewModel>(model);
+
+        //    if (context == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.BoardId = new SelectList(_repositoryPCBwarehouse.Board, "BoardId", "NameBlock", model.BoardId);
+        //    ViewBag.MapId = new SelectList(_repositoryPCBmap.Map, "MapId", "MapId", model.MapId);
+
+        //    return View("Edit_MapBoard", context);
+        //}
         #endregion
 
         #region MapBoard
-        public ActionResult MapBoardList(int page = 1)
+        public ActionResult MapBoardList(int page = 1, int map = 0)
         {
             MapBoardListViewModel model = new MapBoardListViewModel
             {
@@ -190,6 +229,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                     .Include(m => m.Board)
                     .Include(m => m.Map)
                     .OrderBy(m => m.SingleMapBoardId)
+                    .Where(m => m.MapId == map)
                     .AsEnumerable()
                     .Reverse()
                     .Skip((page - 1) * PageSize)
@@ -200,8 +240,9 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                     EntitiesPerPages = PageSize,
                     CurrentPage = page,
                     TotalEntities = _repositoryPCBmap.MapBoard.Count()
+                },
 
-                }
+                CurrentMap = map
             };
 
             return View(model);
@@ -225,10 +266,20 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
             return View(context);
         }
 
-        public ActionResult Create_MapBoard()
+        public ActionResult Create_MapBoard(int? id)
         {
             ViewBag.BoardId = new SelectList(_repositoryPCBwarehouse.Board, "BoardId", "NameBlock");
-            ViewBag.MapId = new SelectList(_repositoryPCBmap.Map, "MapId", "MapId");
+
+            if (id == null)
+            {
+                ViewBag.CurrentMap = 1;
+                ViewBag.MapId = new SelectList(_repositoryPCBmap.Map, "MapId", "MapId");
+                return View();
+            }
+
+            ViewBag.MapId = new SelectList(_repositoryPCBmap.Map, "MapId", "MapId", id);
+            ViewBag.CurrentMap = id;
+
             return View();
         }
 
@@ -246,7 +297,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                     await _repositoryPCBmap.AddMapBoardAsync(context);
 
                     ModelState.Clear();
-                    return RedirectToAction("MapBoardList");
+                    return RedirectToAction("MapBoardList", "Map", new { id = 1, map = model.MapId});
                 }
                 catch (Exception ex)
                 {
@@ -292,7 +343,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
 
                     await _repositoryPCBmap.EditMapBoardAsync(context);
 
-                    return RedirectToAction("MapList");
+                    return RedirectToAction("MapBoardList", "Map", new { id = 1, map = model.MapId });
                 }
                 catch (Exception ex)
                 {
@@ -334,7 +385,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                 var context = await _repositoryPCBmap.MapBoard.FirstOrDefaultAsync(m => m.SingleMapBoardId == id);
                 await _repositoryPCBmap.DeleteMapBoardAsync(context);
 
-                return RedirectToAction("MapBoardList");
+                return RedirectToAction("MapBoardList", "Map", new { id = 1, map = context.MapId });
             }
             catch (Exception ex)
             {

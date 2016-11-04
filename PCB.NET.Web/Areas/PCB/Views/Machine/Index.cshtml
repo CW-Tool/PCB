@@ -2,16 +2,19 @@
     ViewBag.Title = "Машины";
     Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
 }
-
+<div>
+    <hr />
+    <p><a class="btn btn-default" href="@Url.Action("Index","Home", new { area = "PCB"})">&laquo; Назад</a></p>
+</div>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-3">
         <h2>Машина EBSO</h2>
         <p>
             Добавление/удаление/изменение выполнения времени плат
         </p>
         <p><a class="btn btn-default" href="@Url.Action("EbsoList","Machine", new { area = "PCB"})">Открыть &raquo;</a></p>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-3">
         <h2>Машина DVC</h2>
         <p>
             Добавление/удаление/изменение выполнения времени плат

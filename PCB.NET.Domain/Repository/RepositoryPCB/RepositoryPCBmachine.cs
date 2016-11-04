@@ -4,6 +4,7 @@ using PCB.NET.Domain.Model.WorkshopPCB.Machine;
 using PCB.NET.Domain.Model;
 using System;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace PCB.NET.Domain.Repository.RepositoryPCB
 {
@@ -30,36 +31,84 @@ namespace PCB.NET.Domain.Repository.RepositoryPCB
         #endregion
 
         #region DVC
-        public Task AddDvcAsync(Dvc context)
+        public async Task AddDvcAsync(Dvc context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Dvcs.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeleteDvcAsync(Dvc context)
+        public async Task DeleteDvcAsync(Dvc context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Dvcs.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task EditDvcAsync(Dvc context)
+        public async Task EditDvcAsync(Dvc context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
 
         #region EBSO
-        public Task AddEbsoAsync(Ebso context)
+        public async Task AddEbsoAsync(Ebso context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Ebsos.Add(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task EditEbsoAsync(Ebso context)
+        public async Task EditEbsoAsync(Ebso context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(context).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public Task DeleteEbsoAsync(Ebso context)
+        public async Task DeleteEbsoAsync(Ebso context)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Ebsos.Remove(context);
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         #endregion
     }
