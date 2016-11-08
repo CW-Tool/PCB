@@ -8,15 +8,18 @@ namespace PCB.NET.Web.Areas.PCB.Models.MapViewModel
 {
     public class MapListViewModel
     {
-        public IEnumerable<Map> Map { get; set; }
+        public IEnumerable<MapViewModel> Map { get; set; }
         public ListView ListView { get; set; }
+        public Month Date { get; set; }
     }
 
     public class MapViewModel
     {
         public int MapId { get; set; }
         [Required]
+        [Display(Name = "Дата")]
         public Month Date { get; set; }
+        [Display(Name = "Последние изменения")]
         public DateTime Modified { get; set; }
 
 

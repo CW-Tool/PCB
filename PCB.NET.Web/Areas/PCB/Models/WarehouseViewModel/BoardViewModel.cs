@@ -19,13 +19,18 @@ namespace PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel
     {
         public int BoardId { get; set; }
         [Required]
+        [Display(Name = "Блок электронный")]
         public string NameBlock { get; set; }
         [Required]
+        [Display(Name = "Изделие")]
         public string Make { get; set; }
         [Required]
+        [Display(Name = "Количество на загатовке")]
         public int CountBoard { get; set; }
+        [Display(Name = "Описание")]
         public string Description { get; set; }
         [Required]
+        [Display(Name = "Последнее обновление")]
         public DateTime LastUpdate { get; set; }
 
         public virtual Ebso Ebso { get; set; }

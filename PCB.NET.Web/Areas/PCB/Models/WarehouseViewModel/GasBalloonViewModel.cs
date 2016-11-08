@@ -18,10 +18,13 @@ namespace PCB.NET.Web.Areas.PCB.Models.WarehouseViewModel
         [HiddenInput]
         public int GasBalloonId { get; set; }
         [Required]
+        [Display(Name = "Номер балона")]
         public string BalloonNumber { get; set; }
         [Required]
+        [Display(Name = "Дата следующей проверки")]
         public string DateNextModified { get; set; }
         [Required]
+        [Display(Name = "Последние обновление")]
         public DateTime LastUpdate { get; set; }
     }
 }

@@ -25,14 +25,19 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
         }
         public ActionResult Index(int page = 1)
         {
+            var repository = _repositoryPCBmap.Map
+                    .OrderBy(m => m.MapId)
+                    .AsEnumerable()
+                    .Reverse()
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize);
+
+            IMapper map = MappingConfig.MapperConfigMap.CreateMapper();
+            var context = map.Map<IEnumerable<MapViewModel>>(repository);
+
             MapListViewModel model = new MapListViewModel
             {
-                Map = _repositoryPCBmap.Map
-        .OrderBy(m => m.MapId)
-        .AsEnumerable()
-        .Reverse()
-        .Skip((page - 1) * PageSize)
-        .Take(PageSize),
+                Map = context,
 
                 ListView = new ListView
                 {
@@ -223,9 +228,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
         #region MapBoard
         public ActionResult MapBoardList(int page = 1, int map = 0)
         {
-            MapBoardListViewModel model = new MapBoardListViewModel
-            {
-                MapBoard = _repositoryPCBmap.MapBoard
+            var repository = _repositoryPCBmap.MapBoard
                     .Include(m => m.Board)
                     .Include(m => m.Map)
                     .OrderBy(m => m.SingleMapBoardId)
@@ -233,7 +236,18 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                     .AsEnumerable()
                     .Reverse()
                     .Skip((page - 1) * PageSize)
-                    .Take(PageSize),
+                    .Take(PageSize);
+            var mapBoardSingle = _repositoryPCBmap.MapBoard.FirstOrDefault(m => m.MapId == map);
+
+            IMapper mapModelTwo = MappingConfig.MapperConfigMapBoard.CreateMapper();
+            var contextTwo = mapModelTwo.Map<MapBoardViewModel>(mapBoardSingle);
+
+            IMapper mapModel = MappingConfig.MapperConfigMapBoard.CreateMapper();
+            var context = mapModel.Map<IEnumerable<MapBoardViewModel>>(repository);
+
+            MapBoardListViewModel model = new MapBoardListViewModel
+            {
+                MapBoard = context,
 
                 ListView = new ListView
                 {
@@ -242,7 +256,8 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                     TotalEntities = _repositoryPCBmap.MapBoard.Count()
                 },
 
-                CurrentMap = map
+                CurrentMap = map,
+                MapBoardSingle = contextTwo
             };
 
             return View(model);

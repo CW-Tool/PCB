@@ -1,11 +1,11 @@
 ﻿@model PCB.NET.Web.Areas.PCB.Models.MapViewModel.MapBoardListViewModel
 
 @{
-    ViewBag.Title = "Текущий план";
+    ViewBag.Title = "План";
     Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>@ViewBag.Title за @Model.MapBoardSingle.Map.Date</h2>
 
 <div>
     <p><a class="btn btn-default" href="@Url.Action("Index","Map", new { area = "PCB"})">&laquo; Назад</a></p>
@@ -18,28 +18,28 @@
 <table class="table">
     <tr>
         <th>
-            NameBlock
+            @Html.LabelFor(m => m.MapBoardSingle.Map.Date)
         </th>
         <th>
-            MapId
+            @Html.LabelFor(m => m.MapBoardSingle.Board.NameBlock)
         </th>
         <th>
-            CountBoard
+            @Html.LabelFor(m => m.MapBoardSingle.CountBoard)
         </th>
         <th>
-            CountHanging
+            @Html.LabelFor(m=> m.MapBoardSingle.CountHanging)
         </th>
         <th>
-            CountDvc
+            @Html.LabelFor(m => m.MapBoardSingle.CountDvc)
         </th>
         <th>
-            CountEbso
+            @Html.LabelFor(m => m.MapBoardSingle.CountEbso)
         </th>
         <th>
-            CountPreComplete
+            @Html.LabelFor(m => m.MapBoardSingle.CountPreComplete)
         </th>
         <th>
-            CountReadyDone
+            @Html.LabelFor(m => m.MapBoardSingle.CountReadyDone)
         </th>
         <th></th>
     </tr>
@@ -48,10 +48,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Board.NameBlock)
+                @Html.DisplayFor(modelItem => item.Map.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Map.Date)
+                @Html.DisplayFor(modelItem => item.Board.NameBlock)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CountBoard)
