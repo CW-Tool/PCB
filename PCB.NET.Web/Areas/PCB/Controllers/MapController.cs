@@ -228,7 +228,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
         #region MapBoard
         public ActionResult MapBoardList(int page = 1, int map = 0)
         {
-            var repository = _repositoryPCBmap.MapBoard
+            var repositoryMapBoard = _repositoryPCBmap.MapBoard
                     .Include(m => m.Board)
                     .Include(m => m.Map)
                     .OrderBy(m => m.SingleMapBoardId)
@@ -237,17 +237,18 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                     .Reverse()
                     .Skip((page - 1) * PageSize)
                     .Take(PageSize);
-            var mapBoardSingle = _repositoryPCBmap.MapBoard.FirstOrDefault(m => m.MapId == map);
 
-            IMapper mapModelTwo = MappingConfig.MapperConfigMapBoard.CreateMapper();
-            var contextTwo = mapModelTwo.Map<MapBoardViewModel>(mapBoardSingle);
+            var getRepositoryBoardSingle = _repositoryPCBmap.MapBoard.FirstOrDefault(m => m.MapId == map);
 
-            IMapper mapModel = MappingConfig.MapperConfigMapBoard.CreateMapper();
-            var context = mapModel.Map<IEnumerable<MapBoardViewModel>>(repository);
+            IMapper getMapSingle = MappingConfig.MapperConfigMapBoard.CreateMapper();
+            var getContextSingleBoard = getMapSingle.Map<MapBoardViewModel>(getRepositoryBoardSingle);
+
+            IMapper getMapModel = MappingConfig.MapperConfigMapBoard.CreateMapper();
+            var getContextMapModel = getMapModel.Map<IEnumerable<MapBoardViewModel>>(repositoryMapBoard);
 
             MapBoardListViewModel model = new MapBoardListViewModel
             {
-                MapBoard = context,
+                MapBoard = getContextMapModel,
 
                 ListView = new ListView
                 {
@@ -257,7 +258,7 @@ namespace PCB.NET.Web.Areas.PCB.Controllers
                 },
 
                 CurrentMap = map,
-                MapBoardSingle = contextTwo
+                MapBoardSingle = getContextSingleBoard
             };
 
             return View(model);

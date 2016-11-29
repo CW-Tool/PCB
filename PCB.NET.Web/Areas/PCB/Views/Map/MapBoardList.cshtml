@@ -5,7 +5,7 @@
     Layout = "~/Areas/PCB/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title за @Model.MapBoardSingle.Map.Date</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
     <p><a class="btn btn-default" href="@Url.Action("Index","Map", new { area = "PCB"})">&laquo; Назад</a></p>
@@ -44,37 +44,37 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model.MapBoard)
+    @foreach (var i in Model.MapBoard)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Map.Date)
+                @Html.DisplayFor(m => i.Map.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Board.NameBlock)
+                @Html.DisplayFor(m => i.Board.NameBlock)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CountBoard)
+                @Html.DisplayFor(m => i.CountBoard)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CountHanging)
+                @Html.DisplayFor(m => i.CountHanging)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CountDvc)
+                @Html.DisplayFor(m => i.CountDvc)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CountEbso)
+                @Html.DisplayFor(m => i.CountEbso)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CountPreComplete)
+                @Html.DisplayFor(m => i.CountPreComplete)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CountReadyDone)
+                @Html.DisplayFor(m => i.CountReadyDone)
             </td>
             <td>
-                <a href="@Url.Action("Edit_MapBoard", new { id = item.SingleMapBoardId })" class="btn btn-warning btn-sm">Изменить</a> |
-                <a href="@Url.Action("Details_MapBoard", new { id = item.SingleMapBoardId })" class="btn btn-info btn-sm">Посмотреть детали</a> |
-                <a href="@Url.Action("Delete_MapBoard", new { id = item.SingleMapBoardId })" class="btn btn-danger btn-sm">Удалить</a>
+                <a href="@Url.Action("Edit_MapBoard", new { id = i.SingleMapBoardId })" class="btn btn-warning btn-sm">Изменить</a> |
+                <a href="@Url.Action("Details_MapBoard", new { id = i.SingleMapBoardId })" class="btn btn-info btn-sm">Посмотреть детали</a> |
+                <a href="@Url.Action("Delete_MapBoard", new { id = i.SingleMapBoardId })" class="btn btn-danger btn-sm">Удалить</a>
             </td>
         </tr>
     }
